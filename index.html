@@ -210,7 +210,7 @@
 
         .image-placeholder {
             width: 100%;
-            height: 500px;
+            height: 600px;
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             border-radius: 30px;
             display: flex;
@@ -552,6 +552,10 @@
                 flex-direction: column;
             }
 
+            .image-placeholder {
+                height: 450px !important;
+            }
+
             .features-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
@@ -615,7 +619,7 @@
     <!-- Navigation -->
     <nav>
         <div style="display: flex; align-items: center; gap: 15px;">
-            <img src="./noble_rose_logo.jpeg" alt="Noble Rose Logo" style="height: 50px; width: auto;">
+            <img src="noble_rose_logo.jpeg" alt="Noble Rose Logo" style="height: 50px; width: auto;">
             <div class="logo-text">Noble Rose</div>
         </div>
         <button class="nav-cta">Notify Me</button>
@@ -637,8 +641,8 @@
                 </form>
             </div>
             <div class="hero-image">
-                <div class="image-placeholder" style="background: none; padding: 0;">
-                    <img src="./pat_green.png" alt="Patrice Barnes-Tracey" style="width: 100%; height: 100%; object-fit: cover; border-radius: 30px;">
+                <div class="image-placeholder" style="background: none; padding: 0; height: 600px;">
+                    <img src="pat_green.png" alt="Dr. Patrice Barnes-Tracey" style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; border-radius: 30px;">
                 </div>
             </div>
         </div>
@@ -710,7 +714,7 @@
         }, observerOptions);
 
         document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el); 
+            observer.observe(el);
         });
 
         // Email form handling
