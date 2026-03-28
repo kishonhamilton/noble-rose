@@ -1,2 +1,0 @@
-# noble-rose
-noble-rose
