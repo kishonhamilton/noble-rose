@@ -3,735 +3,550 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noble Rose Counseling & Wellness - Coming Soon</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Noble Rose Counseling & Wellness</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --primary: #2d5f4f;
+            --primary-light: #3a7a65;
             --secondary: #c99a83;
             --accent: #e6b8a8;
+            --gold: #c9a84c;
             --dark: #1a1a1a;
+            --mid: #555;
             --light: #f8f6f4;
             --white: #ffffff;
         }
 
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'DM Sans', sans-serif;
             background: var(--light);
             color: var(--dark);
             overflow-x: hidden;
         }
 
-        /* Animated Background */
-        .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(135deg, #f8f6f4 0%, #e8e3df 50%, #d4cdc7 100%);
-        }
-
-        .bg-animation::before {
-            content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(45, 95, 79, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            top: -250px;
-            right: -250px;
-            animation: float 20s infinite ease-in-out;
-        }
-
-        .bg-animation::after {
-            content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(201, 154, 131, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            bottom: -200px;
-            left: -200px;
-            animation: float 15s infinite ease-in-out reverse;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(50px, 50px) scale(1.1); }
-        }
-
-        /* Navigation */
+        /* ─── NAV ─────────────────────────────────── */
         nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            position: fixed; top: 0; left: 0; right: 0;
+            padding: 0 50px; height: 80px;
+            display: flex; justify-content: space-between; align-items: center;
             z-index: 1000;
-            background: rgba(248, 246, 244, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(45, 95, 79, 0.1);
-            animation: slideDown 0.8s ease;
+            background: rgba(248,246,244,0.97);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(45,95,79,0.1);
+            transition: box-shadow 0.3s;
         }
+        .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
+        .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.7em; font-weight: 600; color: var(--primary); letter-spacing: 1px; }
+        .nav-links { display: flex; align-items: center; gap: 8px; list-style: none; }
+        .nav-links a { text-decoration: none; color: #555; font-size: 0.91em; font-weight: 500; padding: 8px 16px; border-radius: 30px; transition: color 0.2s, background 0.2s; white-space: nowrap; }
+        .nav-links a:hover { color: var(--primary); background: rgba(45,95,79,0.08); }
+        .nav-links .nav-cta-link a { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: white; padding: 10px 24px; box-shadow: 0 4px 14px rgba(45,95,79,0.3); }
+        .nav-links .nav-cta-link a:hover { background: linear-gradient(135deg, var(--secondary), #b8846a); color: white; box-shadow: 0 6px 20px rgba(201,154,131,0.4); }
+        .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; background: none; border: none; }
+        .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--primary); border-radius: 2px; }
+        .mobile-menu { display: none; position: fixed; top: 80px; left: 0; right: 0; background: rgba(248,246,244,0.98); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(45,95,79,0.1); padding: 20px 30px; z-index: 999; flex-direction: column; gap: 4px; }
+        .mobile-menu.open { display: flex; }
+        .mobile-menu a { text-decoration: none; color: #444; font-size: 1em; font-weight: 500; padding: 12px 16px; border-radius: 10px; transition: color 0.2s, background 0.2s; }
+        .mobile-menu a:hover { color: var(--primary); background: rgba(45,95,79,0.08); }
+        .mobile-menu .mobile-cta { margin-top: 8px; background: var(--primary); color: white !important; text-align: center; border-radius: 30px; }
 
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .logo-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8em;
-            font-weight: 600;
-            color: var(--primary);
-            letter-spacing: 1px;
-        }
-
-        .nav-cta {
-            padding: 12px 30px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .nav-cta:hover {
-            background: var(--secondary);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(45, 95, 79, 0.3);
-        }
-
-        /* Hero Section */
+        /* ─── HERO ────────────────────────────────── */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 120px 50px 80px;
-            position: relative;
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            padding: 120px 50px 80px; position: relative; overflow: hidden;
+            background: linear-gradient(160deg, #f2ede8 0%, #e8f2ee 40%, #f8f0ec 100%);
         }
-
-        .hero-content {
-            max-width: 1200px;
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .hero-text {
-            animation: fadeInLeft 1s ease;
-        }
-
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .hero-badge {
-            display: inline-block;
-            padding: 8px 20px;
-            background: rgba(45, 95, 79, 0.1);
-            color: var(--primary);
-            border-radius: 50px;
-            font-size: 0.9em;
-            font-weight: 500;
-            margin-bottom: 30px;
-            letter-spacing: 1px;
-        }
-
-        .hero h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 4.5em;
-            font-weight: 700;
-            color: var(--primary);
-            line-height: 1.2;
-            margin-bottom: 30px;
-        }
-
-        .hero-subtitle {
-            font-size: 1.3em;
-            color: var(--secondary);
-            font-weight: 300;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-
-        .hero-description {
-            font-size: 1.1em;
-            color: #666;
-            line-height: 1.8;
-            margin-bottom: 40px;
-        }
-
-        /* Hero Image */
-        .hero-image {
-            position: relative;
-            animation: fadeInRight 1s ease;
-        }
-
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .image-placeholder {
-            width: 100%;
-            height: 600px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            border-radius: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3em;
-            color: white;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(45, 95, 79, 0.3);
-        }
-
-        /* Email Form */
-        .email-form {
-            display: flex;
-            gap: 15px;
-            margin-top: 40px;
-        }
-
-        .email-input {
-            flex: 1;
-            padding: 18px 25px;
-            border: 2px solid rgba(45, 95, 79, 0.2);
-            border-radius: 50px;
-            font-size: 1em;
-            font-family: 'Inter', sans-serif;
-            transition: all 0.3s ease;
-            background: white;
-        }
-
-        .email-input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 5px 20px rgba(45, 95, 79, 0.1);
-        }
-
-        .submit-btn {
-            padding: 18px 40px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-size: 1em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .submit-btn:hover {
-            background: var(--secondary);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(45, 95, 79, 0.3);
-        }
-
-        /* Features Section */
-        .features {
-            padding: 100px 50px;
-            background: white;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 80px;
-        }
-
-        .section-header h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3.5em;
-            color: var(--primary);
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .section-header p {
-            font-size: 1.2em;
-            color: #666;
-            line-height: 1.8;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .feature-card {
-            padding: 50px 40px;
-            background: var(--light);
-            border-radius: 20px;
-            text-align: center;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(45, 95, 79, 0.15);
-        }
-
-        .feature-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .feature-icon {
-            font-size: 4em;
-            margin-bottom: 25px;
-            display: block;
-        }
-
-        .feature-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8em;
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .feature-card p {
-            color: #666;
-            line-height: 1.7;
-            font-size: 1.05em;
-        }
-
-        /* Launch Timeline */
-        .timeline {
-            padding: 100px 50px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .timeline-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .timeline h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3.5em;
-            color: white;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .timeline p {
-            font-size: 1.3em;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 40px;
-            line-height: 1.8;
-        }
-
-        .launch-date {
-            display: inline-block;
-            padding: 30px 60px;
-            background: white;
-            border-radius: 20px;
-            margin: 30px 0;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-        }
-
-        .launch-date span {
-            display: block;
-            font-size: 0.9em;
-            color: var(--secondary);
-            margin-bottom: 10px;
-            font-weight: 500;
-            letter-spacing: 2px;
-        }
-
-        .launch-date strong {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5em;
-            color: var(--primary);
-            font-weight: 700;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 100px 50px;
-            background: var(--light);
-        }
-
-        .contact-content {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .contact-card {
-            padding: 40px;
-            background: white;
-            border-radius: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .contact-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(45, 95, 79, 0.1);
-        }
-
-        .contact-icon {
-            font-size: 3em;
-            margin-bottom: 20px;
-        }
-
-        .contact-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8em;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .contact-card a {
-            color: var(--secondary);
-            text-decoration: none;
-            font-size: 1.1em;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .contact-card a:hover {
-            color: var(--primary);
-        }
-
-        /* Footer */
-        footer {
-            padding: 60px 50px 40px;
-            background: var(--primary);
-            color: white;
-            text-align: center;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .social-link {
-            width: 60px;
-            height: 60px;
+        /* Static decorative blobs — no animation */
+        .hero::before {
+            content: ''; position: absolute; top: -150px; right: -150px;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(45,95,79,0.12) 0%, transparent 65%);
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5em;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
         }
-
-        .social-link:hover {
-            background: white;
-            border-color: white;
-            transform: translateY(-5px);
+        .hero::after {
+            content: ''; position: absolute; bottom: -100px; left: -100px;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(201,154,131,0.15) 0%, transparent 65%);
+            border-radius: 50%;
         }
+        .hero-content { max-width: 1200px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; z-index: 1; }
+        .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 8px 20px; border-radius: 50px; margin-bottom: 28px; background: linear-gradient(135deg, rgba(45,95,79,0.12), rgba(201,154,131,0.12)); border: 1px solid rgba(45,95,79,0.15); font-size: 0.82em; font-weight: 600; color: var(--primary); letter-spacing: 1.5px; }
+        .hero-eyebrow::before { content: '✦'; font-size: 0.8em; color: var(--secondary); }
+        .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 5em; font-weight: 700; color: var(--primary); line-height: 1.1; margin-bottom: 24px; }
+        .hero h1 em { font-style: italic; font-weight: 300; background: linear-gradient(135deg, var(--secondary), #a06a50); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero-subtitle { font-size: 1.2em; color: var(--secondary); font-weight: 400; margin-bottom: 22px; line-height: 1.65; }
+        .hero-description { font-size: 1.05em; color: var(--mid); line-height: 1.85; }
+        .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 40px; }
+        .btn-primary { padding: 17px 40px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: white; border-radius: 50px; text-decoration: none; font-size: 1em; font-weight: 600; box-shadow: 0 8px 24px rgba(45,95,79,0.35); transition: box-shadow 0.25s; }
+        .btn-primary:hover { box-shadow: 0 14px 36px rgba(45,95,79,0.4); }
+        .btn-outline { padding: 17px 40px; background: transparent; color: var(--primary); border: 2px solid var(--primary); border-radius: 50px; text-decoration: none; font-size: 1em; font-weight: 600; transition: background 0.25s, color 0.25s; }
+        .btn-outline:hover { background: var(--primary); color: white; }
+        .hero-image { position: relative; }
+        /* Static decorative blob behind image */
+        .hero-img-blob { position: absolute; top: -40px; right: -40px; width: 420px; height: 420px; border-radius: 50%; background: linear-gradient(135deg, rgba(201,154,131,0.25), rgba(45,95,79,0.15)); z-index: -1; }
+        .hero-img-wrap { position: relative; border-radius: 36px; overflow: hidden; height: 620px; box-shadow: 0 30px 80px rgba(45,95,79,0.25), 0 0 0 8px rgba(45,95,79,0.08); }
+        .hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+        .hero-img-tag { position: absolute; bottom: 30px; left: -20px; background: white; border-radius: 16px; padding: 16px 22px; box-shadow: 0 10px 40px rgba(0,0,0,0.12); display: flex; align-items: center; gap: 14px; }
+        .hero-img-tag .tag-icon { font-size: 1.8em; }
+        .hero-img-tag .tag-text { font-size: 0.82em; color: #888; }
+        .hero-img-tag .tag-text strong { display: block; font-size: 1.1em; color: var(--primary); font-weight: 600; }
 
-        footer p {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.95em;
-            margin-top: 20px;
-        }
+        /* ─── STATS STRIP ─────────────────────────── */
+        .stats-strip { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); padding: 0; position: relative; overflow: hidden; }
+        .stats-strip::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+        .stats-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); position: relative; z-index: 1; }
+        .stat-item { padding: 50px 30px; text-align: center; border-right: 1px solid rgba(255,255,255,0.12); transition: background 0.25s; }
+        .stat-item:last-child { border-right: none; }
+        .stat-item:hover { background: rgba(255,255,255,0.05); }
+        .stat-number { font-family: 'Cormorant Garamond', serif; font-size: 3.8em; font-weight: 700; color: white; line-height: 1; margin-bottom: 8px; }
+        .stat-number span { color: var(--accent); }
+        .stat-label { font-size: 0.88em; color: rgba(255,255,255,0.72); font-weight: 400; letter-spacing: 0.4px; }
 
-        /* Responsive Design */
+        /* ─── SECTION BADGE ───────────────────────── */
+        .section-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 20px; border-radius: 50px; margin-bottom: 22px; background: linear-gradient(135deg, rgba(45,95,79,0.1), rgba(201,154,131,0.1)); border: 1px solid rgba(45,95,79,0.15); font-size: 0.82em; font-weight: 600; color: var(--primary); letter-spacing: 1.5px; }
+        .section-badge::before { content: '✦'; font-size: 0.75em; color: var(--secondary); }
+
+        /* ─── ABOUT ───────────────────────────────── */
+        .about { padding: 110px 50px; background: white; position: relative; overflow: hidden; }
+        .about::before { content: ''; position: absolute; top: 0; right: 0; width: 350px; height: 350px; background: radial-gradient(circle, rgba(201,154,131,0.1) 0%, transparent 70%); border-radius: 50%; }
+        .about-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 420px 1fr; gap: 90px; align-items: start; position: relative; z-index: 1; }
+        .about-img-wrap { position: relative; }
+        .about-img-wrap img { width: 100%; height: auto; border-radius: 24px; box-shadow: 0 24px 70px rgba(45,95,79,0.18); }
+        .about-img-wrap::before { content: ''; position: absolute; top: -16px; left: -16px; right: 16px; bottom: 16px; border: 3px solid rgba(201,154,131,0.3); border-radius: 28px; z-index: -1; }
+        .about-img-badge { position: absolute; bottom: -20px; right: -20px; background: linear-gradient(135deg, var(--secondary), #b8846a); color: white; border-radius: 18px; padding: 18px 24px; text-align: center; box-shadow: 0 12px 40px rgba(201,154,131,0.45); }
+        .about-img-badge strong { display: block; font-family: 'Cormorant Garamond', serif; font-size: 2.2em; font-weight: 700; line-height: 1; }
+        .about-img-badge span { font-size: 0.78em; opacity: 0.9; font-weight: 400; }
+        .about-eyebrow { display: inline-block; padding: 7px 18px; border-radius: 50px; margin-bottom: 22px; background: rgba(45,95,79,0.08); color: var(--primary); font-size: 0.82em; font-weight: 600; letter-spacing: 1.5px; }
+        .about h2 { font-family: 'Cormorant Garamond', serif; font-size: 3.4em; color: var(--primary); font-weight: 700; line-height: 1.15; margin-bottom: 12px; }
+        .about-credentials { font-size: 1.1em; color: var(--secondary); font-weight: 500; margin-bottom: 30px; padding-bottom: 28px; border-bottom: 2px solid rgba(45,95,79,0.08); }
+        .about p { font-size: 1.02em; color: #5a5a5a; line-height: 1.85; margin-bottom: 18px; }
+        .pull-quote { margin: 32px 0; padding: 28px 32px; background: linear-gradient(135deg, rgba(45,95,79,0.06), rgba(201,154,131,0.06)); border-left: 4px solid var(--secondary); border-radius: 0 14px 14px 0; position: relative; }
+        .pull-quote::before { content: '"'; font-family: 'Cormorant Garamond', serif; font-size: 6em; color: rgba(201,154,131,0.25); position: absolute; top: -10px; left: 16px; line-height: 1; }
+        .pull-quote p { font-family: 'Cormorant Garamond', serif; font-size: 1.35em !important; font-style: italic; color: var(--primary) !important; line-height: 1.6 !important; margin: 0 !important; padding-left: 20px; position: relative; z-index: 1; }
+
+        /* ─── APPROACH ────────────────────────────── */
+        .approach { padding: 110px 50px; position: relative; overflow: hidden; background: linear-gradient(180deg, #eef5f2 0%, #f8f6f4 100%); }
+        /* Static decorative ring ornament — no spin */
+        .approach::after { content: ''; position: absolute; bottom: -60px; right: -60px; width: 400px; height: 400px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='80' fill='none' stroke='%232d5f4f' stroke-width='1' stroke-dasharray='4 8' opacity='0.12'/%3E%3Ccircle cx='100' cy='100' r='55' fill='none' stroke='%23c99a83' stroke-width='1' stroke-dasharray='4 8' opacity='0.12'/%3E%3Ccircle cx='100' cy='100' r='30' fill='none' stroke='%232d5f4f' stroke-width='1' stroke-dasharray='4 8' opacity='0.12'/%3E%3C/svg%3E") center/contain no-repeat; pointer-events: none; }
+        .approach-intro { max-width: 900px; margin: 0 auto 80px; text-align: center; position: relative; z-index: 1; }
+        .approach-intro h2 { font-family: 'Cormorant Garamond', serif; font-size: 3.5em; color: var(--primary); font-weight: 700; line-height: 1.2; margin-bottom: 28px; }
+        .approach-intro p { font-size: 1.12em; color: #5a5a5a; line-height: 1.85; margin-bottom: 14px; }
+        .section-heading { text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 2.8em; color: var(--primary); font-weight: 700; margin-bottom: 50px; position: relative; z-index: 1; }
+        .section-heading::after { content: ''; display: block; width: 60px; height: 3px; margin: 14px auto 0; background: linear-gradient(90deg, var(--primary), var(--secondary)); border-radius: 3px; }
+
+        /* Modality cards */
+        .modalities-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; max-width: 1200px; margin: 0 auto 90px; position: relative; z-index: 1; }
+        .modality-card { background: white; border-radius: 20px; padding: 36px 30px; position: relative; overflow: hidden; transition: box-shadow 0.3s; border: 1px solid rgba(45,95,79,0.07); box-shadow: 0 4px 20px rgba(45,95,79,0.05); }
+        .modality-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--primary), var(--secondary)); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
+        .modality-card:hover { box-shadow: 0 16px 44px rgba(45,95,79,0.12); }
+        .modality-card:hover::before { transform: scaleX(1); }
+        .modality-abbr { display: inline-block; padding: 5px 14px; border-radius: 30px; margin-bottom: 14px; background: linear-gradient(135deg, rgba(45,95,79,0.1), rgba(201,154,131,0.08)); color: var(--primary); font-size: 0.78em; font-weight: 700; letter-spacing: 0.5px; border: 1px solid rgba(45,95,79,0.1); }
+        .modality-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.45em; color: var(--primary); font-weight: 700; margin-bottom: 12px; line-height: 1.3; }
+        .modality-card p { font-size: 0.95em; color: #666; line-height: 1.78; }
+
+        /* Services */
+        .services-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; max-width: 1080px; margin: 0 auto 90px; position: relative; z-index: 1; }
+        .service-card { background: white; border-radius: 20px; padding: 36px 32px; display: flex; gap: 20px; align-items: flex-start; transition: box-shadow 0.3s, border-color 0.3s; border: 1px solid rgba(45,95,79,0.07); box-shadow: 0 4px 20px rgba(45,95,79,0.05); position: relative; overflow: hidden; }
+        .service-card::after { content: ''; position: absolute; top: 0; right: 0; width: 80px; height: 80px; background: linear-gradient(225deg, rgba(45,95,79,0.04), transparent); border-radius: 0 20px 0 80px; }
+        .service-card:hover { box-shadow: 0 16px 44px rgba(45,95,79,0.12); border-color: rgba(45,95,79,0.15); }
+        .service-icon-wrap { flex-shrink: 0; width: 54px; height: 54px; border-radius: 16px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); display: flex; align-items: center; justify-content: center; font-size: 1.4em; box-shadow: 0 6px 20px rgba(45,95,79,0.25); }
+        .service-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4em; color: var(--primary); font-weight: 700; margin-bottom: 10px; line-height: 1.3; }
+        .service-card p { font-size: 0.95em; color: #666; line-height: 1.78; }
+
+        /* Commitment banner */
+        .commitment-banner { max-width: 960px; margin: 0 auto; background: linear-gradient(135deg, var(--primary) 0%, #3d7a66 100%); border-radius: 28px; padding: 66px 80px; text-align: center; position: relative; overflow: hidden; z-index: 1; box-shadow: 0 30px 80px rgba(45,95,79,0.3); }
+        .commitment-banner::before { content: '✿'; position: absolute; font-size: 14em; color: rgba(255,255,255,0.04); top: -40px; right: -20px; line-height: 1; }
+        .commitment-banner::after { content: '✿'; position: absolute; font-size: 8em; color: rgba(255,255,255,0.04); bottom: -20px; left: -10px; line-height: 1; }
+        .cb-badge { display: inline-flex; align-items: center; gap: 8px; padding: 7px 18px; border-radius: 30px; background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.9); font-size: 0.8em; font-weight: 600; letter-spacing: 1.5px; margin-bottom: 22px; }
+        .commitment-banner h3 { font-family: 'Cormorant Garamond', serif; font-size: 2.8em; color: white; font-weight: 700; margin-bottom: 20px; line-height: 1.2; position: relative; z-index: 1; }
+        .commitment-banner p { font-size: 1.1em; color: rgba(255,255,255,0.88); line-height: 1.85; position: relative; z-index: 1; }
+
+        /* ─── VALUES ──────────────────────────────── */
+        .values { padding: 110px 50px; background: white; position: relative; overflow: hidden; }
+        .values::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary)); }
+        .values-intro { max-width: 720px; margin: 0 auto 72px; text-align: center; }
+        .values-intro h2 { font-family: 'Cormorant Garamond', serif; font-size: 3.5em; color: var(--primary); font-weight: 700; margin-bottom: 18px; line-height: 1.2; }
+        .values-intro p { font-size: 1.1em; color: #5a5a5a; line-height: 1.85; }
+        .values-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 22px; max-width: 1200px; margin: 0 auto; }
+        .value-card { border-radius: 22px; padding: 38px 26px; text-align: center; position: relative; overflow: hidden; transition: box-shadow 0.3s; border: 1px solid rgba(45,95,79,0.07); }
+        .value-card:nth-child(1) { background: linear-gradient(160deg, #fff9f0, #fdf5ec); }
+        .value-card:nth-child(2) { background: linear-gradient(160deg, #f0f7f4, #e8f2ee); }
+        .value-card:nth-child(3) { background: linear-gradient(160deg, #f4f7f0, #ecf2e8); }
+        .value-card:nth-child(4) { background: linear-gradient(160deg, #f0f4f7, #e8eef5); }
+        .value-card:nth-child(5) { background: linear-gradient(160deg, #fdf0f5, #f7e8ee); }
+        .value-card:nth-child(6) { background: linear-gradient(160deg, #f5f0f7, #eee8f5); }
+        .value-card:nth-child(7) { background: linear-gradient(160deg, #f7f4f0, #f2eee8); }
+        .value-card:hover { box-shadow: 0 20px 50px rgba(45,95,79,0.12); }
+        .values-grid .value-card:nth-child(5) { grid-column: 1; }
+        .values-grid .value-card:nth-child(6) { grid-column: 2; }
+        .values-grid .value-card:nth-child(7) { grid-column: 3; }
+        .value-emoji { font-size: 2.8em; margin-bottom: 16px; display: block; line-height: 1; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.08)); }
+        .value-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5em; color: var(--primary); font-weight: 700; margin-bottom: 12px; }
+        .value-card p { font-size: 0.92em; color: #666; line-height: 1.78; }
+
+        /* ─── CONTACT ─────────────────────────────── */
+        .contact-section { padding: 110px 50px; background: linear-gradient(160deg, #1e4438 0%, var(--primary) 40%, #3d7a65 100%); position: relative; overflow: hidden; }
+        .contact-section::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M40 0C17.9 0 0 17.9 0 40s17.9 40 40 40 40-17.9 40-40S62.1 0 40 0zm0 72C22.4 72 8 57.6 8 40S22.4 8 40 8s32 14.4 32 32-14.4 32-32 32z'/%3E%3C/g%3E%3C/svg%3E"); }
+        .contact-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; position: relative; z-index: 1; }
+        .contact-left h2 { font-family: 'Cormorant Garamond', serif; font-size: 3.2em; color: white; font-weight: 700; line-height: 1.2; margin-bottom: 22px; }
+        .contact-left h2 em { font-style: italic; font-weight: 300; color: var(--accent); }
+        .contact-left > p { font-size: 1.08em; color: rgba(255,255,255,0.82); line-height: 1.85; margin-bottom: 44px; }
+        .contact-info-items { display: flex; flex-direction: column; gap: 16px; }
+        .contact-info-item { display: flex; align-items: center; gap: 16px; color: rgba(255,255,255,0.9); font-size: 0.98em; }
+        .ci-icon { width: 46px; height: 46px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 13px; display: flex; align-items: center; justify-content: center; font-size: 1.2em; flex-shrink: 0; transition: background 0.25s; }
+        .contact-info-item:hover .ci-icon { background: rgba(255,255,255,0.2); }
+        .ci-label { font-size: 0.78em; opacity: 0.65; font-weight: 500; letter-spacing: 0.5px; margin-bottom: 2px; }
+        .ci-value a { color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.2s; }
+        .ci-value a:hover { color: white; }
+        .contact-form-card { background: white; border-radius: 28px; padding: 52px 48px; box-shadow: 0 40px 100px rgba(0,0,0,0.25); }
+        .contact-form-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 2.1em; color: var(--primary); font-weight: 700; margin-bottom: 8px; }
+        .form-subtitle { font-size: 0.93em; color: #888; margin-bottom: 30px; line-height: 1.6; }
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; font-size: 0.85em; font-weight: 600; color: #444; margin-bottom: 7px; letter-spacing: 0.2px; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 13px 17px; border: 1.5px solid #e4deda; border-radius: 12px; font-size: 0.96em; font-family: 'DM Sans', sans-serif; color: var(--dark); background: #fafaf9; transition: border-color 0.2s, box-shadow 0.2s; appearance: none; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--primary); background: white; box-shadow: 0 0 0 4px rgba(45,95,79,0.08); }
+        .form-group textarea { resize: vertical; min-height: 115px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .form-submit-btn { width: 100%; padding: 15px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: white; border: none; border-radius: 50px; font-size: 1em; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; margin-top: 6px; letter-spacing: 0.3px; box-shadow: 0 8px 24px rgba(45,95,79,0.35); transition: box-shadow 0.25s; }
+        .form-submit-btn:hover { box-shadow: 0 14px 34px rgba(45,95,79,0.45); }
+        .form-success { display: none; text-align: center; padding: 20px 0 10px; }
+        .success-icon { font-size: 3em; margin-bottom: 14px; display: block; }
+        .form-success h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.8em; color: var(--primary); margin-bottom: 10px; }
+        .form-success p { color: #666; font-size: 0.97em; line-height: 1.7; }
+
+        /* ─── FOOTER ──────────────────────────────── */
+        footer { background: #111; padding: 70px 50px 40px; position: relative; overflow: hidden; }
+        footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--primary), var(--secondary), var(--gold), var(--secondary), var(--primary)); }
+        footer::after { content: 'Noble Rose'; position: absolute; bottom: -20px; right: 20px; font-family: 'Cormorant Garamond', serif; font-size: 8em; font-weight: 700; color: rgba(255,255,255,0.02); white-space: nowrap; pointer-events: none; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+        .footer-brand .logo-text { color: white; font-size: 1.8em; margin-bottom: 16px; display: block; }
+        .footer-brand p { font-size: 0.93em; color: rgba(255,255,255,0.42); line-height: 1.8; margin-bottom: 28px; }
+        .footer-social { display: flex; gap: 12px; }
+        .footer-social a { width: 42px; height: 42px; border-radius: 12px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 1em; text-decoration: none; color: rgba(255,255,255,0.6); transition: background 0.25s, border-color 0.25s; }
+        .footer-social a:hover { background: var(--primary); border-color: var(--primary); color: white; }
+        .footer-col h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.15em; color: white; font-weight: 600; margin-bottom: 20px; }
+        .footer-col a, .footer-col p { display: block; font-size: 0.9em; color: rgba(255,255,255,0.42); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; line-height: 1.6; }
+        .footer-col a:hover { color: var(--secondary); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 28px; text-align: center; font-size: 0.87em; color: rgba(255,255,255,0.26); }
+
+        /* ─── RESPONSIVE ──────────────────────────── */
         @media (max-width: 1024px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 60px;
-            }
-
-            .hero h1 {
-                font-size: 3.5em;
-            }
-
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .hero-content { grid-template-columns: 1fr; gap: 60px; }
+            .hero h1 { font-size: 4em; }
+            .stats-inner { grid-template-columns: repeat(2,1fr); }
+            .stat-item:nth-child(2) { border-right: none; }
+            .about-inner { grid-template-columns: 1fr; gap: 50px; }
+            .modalities-grid { grid-template-columns: repeat(2,1fr); }
+            .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
         }
-
         @media (max-width: 768px) {
-            nav {
-                padding: 15px 20px;
-            }
-
-            .logo-text {
-                font-size: 1.4em;
-            }
-
-            .nav-cta {
-                padding: 10px 20px;
-                font-size: 0.9em;
-            }
-
-            .hero {
-                padding: 100px 20px 60px;
-            }
-
-            .hero h1 {
-                font-size: 2.5em;
-            }
-
-            .hero-subtitle {
-                font-size: 1.1em;
-            }
-
-            .email-form {
-                flex-direction: column;
-            }
-
-            .image-placeholder {
-                height: 450px !important;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .features, .timeline, .contact {
-                padding: 60px 20px;
-            }
-
-            .section-header h2,
-            .timeline h2 {
-                font-size: 2.5em;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about > div {
-                grid-template-columns: 1fr !important;
-                gap: 40px !important;
-                text-align: center;
-            }
-
-            .about h2 {
-                font-size: 2.5em !important;
-            }
-
-            .launch-date {
-                padding: 25px 40px;
-            }
-
-            .launch-date strong {
-                font-size: 2em;
-            }
+            nav { padding: 0 20px; }
+            .nav-links { display: none; }
+            .nav-hamburger { display: flex; }
+            .logo-text { font-size: 1.4em; }
+            .hero { padding: 100px 20px 60px; }
+            .hero h1 { font-size: 2.8em; }
+            .stats-inner { grid-template-columns: repeat(2,1fr); }
+            .about, .approach, .values, .contact-section { padding: 70px 20px; }
+            .modalities-grid, .services-grid { grid-template-columns: 1fr; gap: 18px; }
+            .values-grid { grid-template-columns: 1fr 1fr; }
+            .values-grid .value-card:nth-child(5), .values-grid .value-card:nth-child(6), .values-grid .value-card:nth-child(7) { grid-column: auto; }
+            .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+            .contact-form-card { padding: 36px 24px; }
+            .form-row { grid-template-columns: 1fr; gap: 0; }
+            .commitment-banner { padding: 48px 30px; }
+            .commitment-banner h3 { font-size: 2.2em; }
+            .footer-inner { grid-template-columns: 1fr; gap: 36px; }
         }
-
-        /* Scroll Animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in:nth-child(1) { animation-delay: 0.1s; }
-        .fade-in:nth-child(2) { animation-delay: 0.2s; }
-        .fade-in:nth-child(3) { animation-delay: 0.3s; }
     </style>
 </head>
 <body>
-    <!-- Background Animation -->
-    <div class="bg-animation"></div>
 
-    <!-- Navigation -->
-    <nav>
-        <div style="display: flex; align-items: center; gap: 15px;">
-            <img src="noble_rose_logo.jpeg" alt="Noble Rose Logo" style="height: 50px; width: auto;">
+    <!-- NAV -->
+    <nav id="mainNav">
+        <a class="nav-logo" href="#">
+            <img src="images/noble_rose_logo.jpeg" alt="Noble Rose Logo" style="height:48px;width:auto;">
             <div class="logo-text">Noble Rose</div>
-        </div>
-        <button class="nav-cta">Notify Me</button>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#approach">Our Approach</a></li>
+            <li><a href="#values">Values</a></li>
+            <li><a href="#services">Services</a></li>
+            <li class="nav-cta-link"><a href="#contact">Book a Consultation</a></li>
+        </ul>
+        <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about" onclick="closeMenu()">About</a>
+        <a href="#approach" onclick="closeMenu()">Our Approach</a>
+        <a href="#values" onclick="closeMenu()">Our Values</a>
+        <a href="#services" onclick="closeMenu()">Services</a>
+        <a href="#contact" class="mobile-cta" onclick="closeMenu()">Book a Consultation</a>
+    </div>
 
-    <!-- Hero Section -->
+    <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <span class="hero-badge">COMING SOON</span>
-                <h1>Nurturing Growth, Inspiring Wellness</h1>
+                <div class="hero-eyebrow">COUNSELING &amp; WELLNESS</div>
+                <h1>Nurturing <em>Growth,</em> Inspiring Wellness</h1>
                 <p class="hero-subtitle">Professional counseling services designed to help you thrive</p>
-                <p class="hero-description">
-                    Welcome to Noble Rose Counseling & Wellness, where compassionate care meets evidence-based therapeutic practices. We're preparing a sanctuary for healing, growth, and transformation.
-                </p>
-                <form class="email-form" onsubmit="return false;">
-                    <input type="email" class="email-input" placeholder="Enter your email" required>
-                    <button type="submit" class="submit-btn">Get Notified</button>
-                </form>
+                <p class="hero-description">Welcome to Noble Rose Counseling &amp; Wellness, where compassionate care meets evidence-based therapeutic practices. We offer a sanctuary for healing, growth, and transformation for children, adolescents, adults, and families.</p>
+                <div class="hero-btns">
+                    <a href="#services" class="btn-primary">Explore Services</a>
+                    <a href="#about" class="btn-outline">Meet Dr. Barnes-Tracey</a>
+                </div>
             </div>
             <div class="hero-image">
-                <div class="image-placeholder" style="background: none; padding: 0; height: 600px;">
-                    <img src="noble_rose_logo.jpeg" alt="Dr. Patrice Barnes-Tracey" style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; border-radius: 30px;">
+                <div class="hero-img-blob"></div>
+                <div class="hero-img-wrap">
+                    <img src="images/pat_branded.jpeg" alt="Noble Rose Counseling & Wellness">
+                </div>
+                <div class="hero-img-tag">
+                    <div class="tag-icon">🌸</div>
+                    <div class="tag-text"><strong>Evidence-Based Care</strong>Compassionate &amp; Culturally Responsive</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" style="padding: 100px 50px; background: white;">
-        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 400px 1fr; gap: 80px; align-items: center;">
-            <div style="position: relative;">
-                <img src="pat_red.jpeg" alt="Dr. Patrice Barnes-Tracey" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 20px 60px rgba(45, 95, 79, 0.2);">
+    <!-- STATS STRIP -->
+    <div class="stats-strip">
+        <div class="stats-inner">
+            <div class="stat-item"><div class="stat-number">15<span>+</span></div><div class="stat-label">Years of Combined Experience</div></div>
+            <div class="stat-item"><div class="stat-number">9<span>+</span></div><div class="stat-label">Evidence-Based Modalities</div></div>
+            <div class="stat-item"><div class="stat-number">6</div><div class="stat-label">Specialized Service Areas</div></div>
+            <div class="stat-item"><div class="stat-number">7</div><div class="stat-label">Core Values Guiding Our Work</div></div>
+        </div>
+    </div>
+
+    <!-- WAVE INTO ABOUT -->
+    <div style="background:#2d5f4f;line-height:0;">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:60px;width:100%;display:block;" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,60 C360,0 1080,80 1440,20 L1440,0 L0,0 Z" fill="white"/>
+        </svg>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about" class="about">
+        <div class="about-inner">
+            <div class="about-img-wrap">
+                <img src="images/pat_profile.jpeg" alt="Dr. Patrice Barnes-Tracey">
+                <div class="about-img-badge"><strong>PhD</strong><span>LCSW · LMSW</span></div>
             </div>
             <div>
-                <span style="display: inline-block; padding: 8px 20px; background: rgba(45, 95, 79, 0.1); color: var(--primary); border-radius: 50px; font-size: 0.9em; font-weight: 500; margin-bottom: 25px; letter-spacing: 1px;">MEET YOUR THERAPIST</span>
-                <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 3.5em; color: var(--primary); margin-bottom: 15px; font-weight: 700; line-height: 1.2;">Dr. Patrice Barnes-Tracey</h2>
-                <p style="font-size: 1.2em; color: var(--secondary); margin-bottom: 30px; font-weight: 500;">PhD, LCSW, LMSW<br>Owner & Founder</p>
-                
-                <p style="font-size: 1.05em; color: #666; line-height: 1.8; margin-bottom: 20px;">
-                    Dr. Patrice Barnes-Tracey earned both her Master's degree and Ph.D. from the Graduate School of Social Service at Fordham University. Her scholarly work has made meaningful contributions to the advancement of child welfare practice, with particular emphasis on improving outcomes for children and families impacted by complex trauma, systemic inequities, and mental health challenges. Through her research and professional engagement, Dr. Barnes-Tracey integrates empirical inquiry with applied practice to inform more responsive, ethical, and trauma-informed child welfare systems.
-                </p>
-                <p style="font-size: 1.05em; color: #666; line-height: 1.8; margin-bottom: 20px;">
-                    Dr. Barnes-Tracey is an expert in child welfare practice and mental health, with a career spanning direct service, leadership, clinical practice, and higher education. Her professional journey includes extensive tenure within public and nonprofit social service systems, where she partnered with and served multiple Child Welfare Agencies across Connecticut and New York. In addition to her systems-level work, Dr. Barnes-Tracey maintains a private practice with a clinical focus on trauma-informed care, mindfulness-based interventions, and the integration of evidence-informed therapeutic approaches that promote healing, resilience, and emotional regulation across the lifespan.
-                </p>
-                <p style="font-size: 1.05em; color: #666; line-height: 1.8; margin-bottom: 20px;">
-                    She further imparts her expertise as an adjunct lecturer at several colleges and universities throughout New York and Connecticut, where she bridges theory and practice to prepare the next generation of human service professionals. In addition to her academic and clinical roles, Dr. Barnes-Tracey is a professional speaker, delivering keynote addresses, workshops, and professional trainings to interdisciplinary audiences across child welfare, mental health, education, and social service sectors.
-                </p>
-                <p style="font-size: 1.05em; color: #666; line-height: 1.8;">
-                    Her professional achievements are further complemented by her dedication to teaching and mentoring both emerging and seasoned social workers. Widely recognized for her innovative and integrative approach to social work practice, Dr. Barnes-Tracey's continued research, clinical and non-clinical experience, education, and public service pursuits underscore her enduring commitment to advancing social work practice with children and families and improving mental health outcomes for the most vulnerable populations.
-                </p>
+                <span class="about-eyebrow">MEET YOUR THERAPIST</span>
+                <h2>Dr. Patrice Barnes-Tracey</h2>
+                <p class="about-credentials">PhD, LCSW, LMSW &nbsp;·&nbsp; Owner &amp; Founder</p>
+                <div class="pull-quote"><p>Widely recognized for her innovative and integrative approach to social work practice — bridging theory, research, and compassionate clinical care.</p></div>
+                <p>Dr. Patrice Barnes-Tracey earned both her Master's degree and Ph.D. from the Graduate School of Social Service at Fordham University. Her scholarly work has made meaningful contributions to the advancement of child welfare practice, with particular emphasis on improving outcomes for children and families impacted by complex trauma, systemic inequities, and mental health challenges.</p>
+                <p>Dr. Barnes-Tracey is an expert in child welfare practice and mental health, with a career spanning direct service, leadership, clinical practice, and higher education. Her professional journey includes extensive tenure within public and nonprofit social service systems across Connecticut and New York. Her clinical focus includes trauma-informed care, mindfulness-based interventions, and evidence-informed approaches that promote healing, resilience, and emotional regulation.</p>
+                <p>She is also an adjunct lecturer at several colleges and universities throughout New York and Connecticut, a professional speaker, and a dedicated mentor to both emerging and seasoned social workers.</p>
             </div>
         </div>
     </section>
 
-    <!-- Timeline Section -->
-    <section class="timeline">
-        <div class="timeline-content">
-            <h2>Launching Soon</h2>
-            <p>We're putting the finishing touches on creating an exceptional experience for your wellness journey. Join our waitlist to be the first to know when we open our doors.</p>
-            <div class="launch-date">
-                <span>EXPECTED LAUNCH</span>
-                <strong>Spring 2026</strong>
+    <!-- WAVE INTO APPROACH -->
+    <div style="background:white;line-height:0;">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="height:70px;width:100%;display:block;" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 C480,70 960,0 1440,50 L1440,70 L0,70 Z" fill="#eef5f2"/>
+        </svg>
+    </div>
+
+    <!-- APPROACH -->
+    <section id="approach" class="approach">
+        <div class="approach-intro">
+            <span class="section-badge">OUR PHILOSOPHY</span>
+            <h2>Our Approach to Healing &amp; Growth</h2>
+            <p>At Noble Rose Counseling &amp; Wellness, we believe that every individual and family has the capacity to heal, grow, and thrive. Our approach is compassionate, culturally responsive, and tailored to meet the unique needs of children, adolescents, adults and families.</p>
+            <p>We use evidence-based and holistic treatment modalities to support emotional wellness, strengthen relationships, and build lifelong coping skills.</p>
+        </div>
+
+        <h3 id="modalities" class="section-heading">Our Treatment Modalities</h3>
+        <div class="modalities-grid">
+            <div class="modality-card"><span class="modality-abbr">TF-CBT</span><h3>Trauma-Focused Cognitive Behavioral Therapy</h3><p>An evidence-based approach designed to help children, adolescents, and families overcome the impact of trauma by addressing distressing thoughts, emotions, and experiences in a safe and structured way.</p></div>
+            <div class="modality-card"><span class="modality-abbr">CBT</span><h3>Cognitive Behavioral Therapy</h3><p>CBT helps individuals understand how thoughts, feelings, and behaviors are connected. Clients learn practical tools to manage anxiety, depression, and life stressors by changing unhelpful thinking patterns.</p></div>
+            <div class="modality-card"><span class="modality-abbr">DBT</span><h3>Dialectical Behavior Therapy</h3><p>DBT focuses on building skills in emotional regulation, distress tolerance, mindfulness, and healthy relationships. It is especially helpful for individuals who experience intense emotions.</p></div>
+            <div class="modality-card"><span class="modality-abbr">SFBT</span><h3>Solution-Focused Brief Therapy</h3><p>A goal-oriented approach that focuses on solutions rather than problems. SFBT helps clients identify strengths and create practical steps toward achieving their desired outcomes.</p></div>
+            <div class="modality-card"><span class="modality-abbr">ABT</span><h3>Attachment-Based Therapy</h3><p>This approach focuses on strengthening emotional bonds, particularly within families. It is especially beneficial for children and caregivers building trust, security, and healthy relationships.</p></div>
+            <div class="modality-card"><span class="modality-abbr">MBT</span><h3>Mindfulness-Based Therapy</h3><p>Incorporates mindfulness practices to help clients stay present, reduce stress, and improve emotional awareness — supporting overall mental wellness and resilience.</p></div>
+            <div class="modality-card"><span class="modality-abbr">MI</span><h3>Motivational Interviewing</h3><p>A collaborative, client-centered approach that helps individuals explore and resolve ambivalence about change. MI is especially effective for building motivation and confidence.</p></div>
+            <div class="modality-card"><span class="modality-abbr">SBT</span><h3>Strengths-Based Therapy</h3><p>This approach focuses on identifying and building upon each client's strengths, resilience, and inner resources to foster empowerment and growth.</p></div>
+            <div class="modality-card"><span class="modality-abbr">PSC</span><h3>Psychoeducation &amp; Skills Coaching</h3><p>We provide education and practical tools to help clients and families better understand mental health, improve communication, and develop effective coping and parenting strategies.</p></div>
+        </div>
+
+        <h3 id="services" class="section-heading">Our Services</h3>
+        <div class="services-grid">
+            <div class="service-card"><div class="service-icon-wrap">🌿</div><div><h3>Individual Therapy</h3><p>One-on-one counseling tailored to support personal growth, emotional healing, and mental wellness — a safe, confidential space for anxiety, depression, trauma, and life transitions.</p></div></div>
+            <div class="service-card"><div class="service-icon-wrap">👨‍👩‍👧</div><div><h3>Child &amp; Family Therapy</h3><p>We support children and families in navigating behavioral challenges, emotional concerns, and life transitions while strengthening family relationships.</p></div></div>
+            <div class="service-card"><div class="service-icon-wrap">🤝</div><div><h3>Family Therapy</h3><p>Focuses on improving communication, resolving conflicts, and strengthening relationships within the family system — creating healthier dynamics and deeper connections.</p></div></div>
+            <div class="service-card"><div class="service-icon-wrap">💛</div><div><h3>Trauma &amp; Healing</h3><p>Specialized support for individuals and families impacted by trauma, helping them process experiences and restore a sense of safety and empowerment.</p></div></div>
+            <div class="service-card"><div class="service-icon-wrap">🌱</div><div><h3>Parent Support &amp; Coaching</h3><p>Guidance and tools to help parents feel confident in managing behaviors, improving communication, and fostering healthy development.</p></div></div>
+            <div class="service-card"><div class="service-icon-wrap">✨</div><div><h3>Adolescent &amp; Teen Services</h3><p>A safe and supportive space for teens to explore identity, manage stress, build coping skills, and navigate social and academic challenges.</p></div></div>
+        </div>
+
+        <div class="commitment-banner">
+            <div class="cb-badge">✦ &nbsp;OUR COMMITMENT</div>
+            <h3>Walking Alongside You</h3>
+            <p>At Noble Rose Counseling &amp; Wellness, we are committed to creating a safe, nurturing environment where clients feel seen, heard, and supported. Our goal is to walk alongside you on your journey toward healing and wellness.</p>
+        </div>
+    </section>
+
+    <!-- WAVE INTO VALUES -->
+    <div style="background:#eef5f2;line-height:0;">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="height:70px;width:100%;display:block;" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,50 C360,0 1080,80 1440,20 L1440,70 L0,70 Z" fill="white"/>
+        </svg>
+    </div>
+
+    <!-- VALUES -->
+    <section id="values" class="values">
+        <div class="values-intro">
+            <span class="section-badge">WHO WE ARE</span>
+            <h2>Our Core Values</h2>
+            <p>At Noble Rose Counseling &amp; Wellness, our core values guide everything we do. They reflect who we are, how we work, and the experience we strive to create for every client and family.</p>
+        </div>
+        <div class="values-grid">
+            <div class="value-card"><span class="value-emoji">💛</span><h3>Compassion</h3><p>We approach each individual and family with empathy, understanding, and kindness, creating a safe space for healing and growth.</p></div>
+            <div class="value-card"><span class="value-emoji">🛡️</span><h3>Integrity</h3><p>We uphold honesty, transparency, and professionalism in all interactions, fostering trust and accountability.</p></div>
+            <div class="value-card"><span class="value-emoji">🌱</span><h3>Empowerment</h3><p>We believe in nurturing each client's strengths and resilience, helping them build confidence and take charge of their healing journey.</p></div>
+            <div class="value-card"><span class="value-emoji">🤝</span><h3>Collaboration</h3><p>We partner with clients, families, and communities to create meaningful change and lasting support.</p></div>
+            <div class="value-card"><span class="value-emoji">🌈</span><h3>Inclusivity</h3><p>We honor diversity and provide culturally responsive care, embracing every person's unique background, identity, and experiences.</p></div>
+            <div class="value-card"><span class="value-emoji">🌸</span><h3>Growth</h3><p>We are committed to continuous learning, personal development, and supporting lifelong emotional wellness.</p></div>
+            <div class="value-card"><span class="value-emoji">🙏</span><h3>Respect</h3><p>We value and honor the dignity, experiences, and perspectives of every individual and family we serve.</p></div>
+        </div>
+    </section>
+
+    <!-- WAVE INTO CONTACT -->
+    <div style="background:white;line-height:0;">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="height:70px;width:100%;display:block;" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,20 C480,80 960,0 1440,50 L1440,70 L0,70 Z" fill="#1e4438"/>
+        </svg>
+    </div>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section">
+        <div class="contact-inner">
+            <div class="contact-left">
+                <h2>Begin Your Journey Toward <em>Healing</em></h2>
+                <p>Ready to take the first step? We'd love to connect. Reach out to schedule a free consultation and learn how Noble Rose Counseling &amp; Wellness can support you and your family.</p>
+                <div class="contact-info-items">
+                    <div class="contact-info-item"><div class="ci-icon">📧</div><div><div class="ci-label">EMAIL</div><div class="ci-value"><a href="mailto:info@noblerosellc.com">info@noblerosellc.com</a></div></div></div>
+                    <div class="contact-info-item"><div class="ci-icon">📞</div><div><div class="ci-label">PHONE</div><div class="ci-value"><a href="tel:+1">Call to Schedule</a></div></div></div>
+                    <div class="contact-info-item"><div class="ci-icon">⏰</div><div><div class="ci-label">RESPONSE TIME</div><div class="ci-value">We respond within 24 hours</div></div></div>
+                    <div class="contact-info-item"><div class="ci-icon">🔒</div><div><div class="ci-label">CONFIDENTIAL</div><div class="ci-value">All inquiries are strictly confidential</div></div></div>
+                </div>
+            </div>
+            <div class="contact-form-card">
+                <h3>Send Us a Message</h3>
+                <p class="form-subtitle">Fill out the form below and we will get back to you within 24 hours.</p>
+                <div id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group"><label for="firstName">First Name</label><input type="text" id="firstName" placeholder="Jane"></div>
+                        <div class="form-group"><label for="lastName">Last Name</label><input type="text" id="lastName" placeholder="Smith"></div>
+                    </div>
+                    <div class="form-group"><label for="emailField">Email Address *</label><input type="email" id="emailField" placeholder="your@email.com" required></div>
+                    <div class="form-group"><label for="phoneField">Phone Number</label><input type="tel" id="phoneField" placeholder="(000) 000-0000"></div>
+                    <div class="form-group">
+                        <label for="serviceField">Service of Interest</label>
+                        <select id="serviceField"><option value="" disabled selected>Select a service...</option><option>Individual Therapy</option><option>Child &amp; Family Therapy</option><option>Family Therapy</option><option>Trauma &amp; Healing</option><option>Parent Support &amp; Coaching</option><option>Adolescent &amp; Teen Services</option><option>Not sure yet</option></select>
+                    </div>
+                    <div class="form-group"><label for="messageField">How Can We Help?</label><textarea id="messageField" placeholder="Tell us about what you're looking for..."></textarea></div>
+                    <button class="form-submit-btn" onclick="submitForm()">Send Message ✦</button>
+                </div>
+                <div class="form-success" id="formSuccess">
+                    <span class="success-icon">🌸</span>
+                    <h4>Message Received!</h4>
+                    <p>Thank you for reaching out. We'll be in touch within 24 hours.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
-        <div class="social-links">
-            <a href="#" class="social-link">📧</a>
-            <a href="#" class="social-link">💼</a>
-            <a href="#" class="social-link">📱</a>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="logo-text">Noble Rose</div>
+                <p>Noble Rose Counseling &amp; Wellness — creating a safe, nurturing environment where clients feel seen, heard, and supported on their journey toward healing and wellness.</p>
+                <div class="footer-social">
+                    <a href="mailto:info@noblerosellc.com" title="Email">📧</a>
+                    <a href="#" title="LinkedIn">💼</a>
+                    <a href="#" title="Instagram">📱</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <a href="#services">Individual Therapy</a>
+                <a href="#services">Child &amp; Family Therapy</a>
+                <a href="#services">Family Therapy</a>
+                <a href="#services">Trauma &amp; Healing</a>
+                <a href="#services">Parent Coaching</a>
+                <a href="#services">Teen Services</a>
+            </div>
+            <div class="footer-col">
+                <h4>Modalities</h4>
+                <a href="#modalities">TF-CBT</a>
+                <a href="#modalities">CBT · DBT</a>
+                <a href="#modalities">SFBT · MI</a>
+                <a href="#modalities">Mindfulness</a>
+                <a href="#modalities">Attachment-Based</a>
+                <a href="#modalities">Strengths-Based</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <a href="mailto:info@noblerosellc.com">info@noblerosellc.com</a>
+                <a href="#contact">Book a Consultation</a>
+                <p>New York &amp; Connecticut</p>
+            </div>
         </div>
-        <p>© 2026 Noble Rose Counseling & Wellness. All rights reserved.</p>
-        <p style="margin-top: 10px; opacity: 0.7;">Creating a space for healing, growth, and wellness.</p>
+        <div class="footer-bottom">
+            <p>© 2026 Noble Rose Counseling &amp; Wellness LLC · All rights reserved · <a href="#" style="color:rgba(255,255,255,0.3);">Privacy Policy</a></p>
+        </div>
     </footer>
 
     <script>
-        // Smooth scroll animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
-                }
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) { e.preventDefault(); window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' }); }
             });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
         });
 
-        // Email form handling
-        document.querySelector('.email-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = this.querySelector('.email-input').value;
-            if (email) {
-                alert('Thank you! We\'ll notify you at: ' + email);
-                this.reset();
-            }
+        // Hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+        function closeMenu() { mobileMenu.classList.remove('open'); }
+
+        // Nav scroll shadow + active link highlight
+        const sections = document.querySelectorAll('section[id], h3[id]');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        window.addEventListener('scroll', () => {
+            document.getElementById('mainNav').style.boxShadow = window.scrollY > 20 ? '0 4px 24px rgba(0,0,0,0.08)' : '';
+            let current = '';
+            sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id'); });
+            navLinks.forEach(a => {
+                a.style.color = ''; a.style.background = '';
+                if (a.getAttribute('href') === '#' + current) { a.style.color = 'var(--primary)'; a.style.background = 'rgba(45,95,79,0.08)'; }
+            });
         });
 
-        // Nav button
-        document.querySelector('.nav-cta').addEventListener('click', function() {
-            document.querySelector('.email-input').focus();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        // Contact form submit
+        function submitForm() {
+            if (!document.getElementById('emailField').value) { document.getElementById('emailField').focus(); return; }
+            document.getElementById('contactForm').style.display = 'none';
+            document.getElementById('formSuccess').style.display = 'block';
+        }
     </script>
 </body>
 </html>
