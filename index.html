@@ -23,25 +23,10 @@
         }
 
         html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--light);
-            color: var(--dark);
-            overflow-x: hidden;
-        }
+        body { font-family: 'DM Sans', sans-serif; background: var(--light); color: var(--dark); overflow-x: hidden; }
 
         /* ─── NAV ─────────────────────────────────── */
-        nav {
-            position: fixed; top: 0; left: 0; right: 0;
-            padding: 0 50px; height: 80px;
-            display: flex; justify-content: space-between; align-items: center;
-            z-index: 1000;
-            background: rgba(248,246,244,0.97);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(45,95,79,0.1);
-            transition: box-shadow 0.3s;
-        }
+        nav { position: fixed; top: 0; left: 0; right: 0; padding: 0 50px; height: 80px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; background: rgba(248,246,244,0.97); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(45,95,79,0.1); transition: box-shadow 0.3s; }
         .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
         .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.7em; font-weight: 600; color: var(--primary); letter-spacing: 1px; }
         .nav-links { display: flex; align-items: center; gap: 8px; list-style: none; }
@@ -51,61 +36,20 @@
         .nav-links .nav-cta-link a:hover { background: linear-gradient(135deg, var(--secondary), #b8846a); color: white; box-shadow: 0 6px 20px rgba(201,154,131,0.4); }
         .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; background: none; border: none; }
         .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--primary); border-radius: 2px; }
-        .mobile-menu { display: none; position: fixed; top: 80px; left: 0; right: 0; background: rgba(91, 53, 15, 0.98); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(45,95,79,0.1); padding: 20px 30px; z-index: 999; flex-direction: column; gap: 4px; }
+        .mobile-menu { display: none; position: fixed; top: 80px; left: 0; right: 0; background: rgba(248,246,244,0.98); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(45,95,79,0.1); padding: 20px 30px; z-index: 999; flex-direction: column; gap: 4px; }
         .mobile-menu.open { display: flex; }
         .mobile-menu a { text-decoration: none; color: #444; font-size: 1em; font-weight: 500; padding: 12px 16px; border-radius: 10px; transition: color 0.2s, background 0.2s; }
         .mobile-menu a:hover { color: var(--primary); background: rgba(45,95,79,0.08); }
         .mobile-menu .mobile-cta { margin-top: 8px; background: var(--primary); color: white !important; text-align: center; border-radius: 30px; }
 
         /* ─── HERO ────────────────────────────────── */
-        .hero {
-            min-height: 100vh; display: flex; align-items: center;
-            justify-content: flex-start;
-            padding: 120px 50px 80px; position: relative; overflow: hidden;
-            background: linear-gradient(160deg, #f2ede8 0%, #e8f2ee 40%, #f8f0ec 100%);
-        }
-        /* Parallax image layer */
-        .hero-parallax {
-            position: absolute; inset: -20% 0;
-            background: url('images/hero_image.jpeg') center center / cover no-repeat;
-            opacity: 0.8;
-            will-change: transform;
-            z-index: 0;
-        }
-        /* Gradient overlay — heavier on the left to frame text, fades right */
-        .hero-overlay {
-            position: absolute; inset: 0;
-            background: linear-gradient(100deg,
-                rgba(232,242,238,0.82) 0%,
-                rgba(232,242,238,0.62) 38%,
-                rgba(232,242,238,0.10) 65%,
-                transparent 100%);
-            z-index: 0;
-        }
-        /* Static decorative blobs */
-        .hero::before {
-            content: ''; position: absolute; top: -150px; right: -150px;
-            width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(45,95,79,0.10) 0%, transparent 65%);
-            border-radius: 50%; z-index: 1;
-        }
-        .hero::after {
-            content: ''; position: absolute; bottom: -100px; left: -100px;
-            width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(201,154,131,0.12) 0%, transparent 65%);
-            border-radius: 50%; z-index: 1;
-        }
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: flex-start; padding: 120px 50px 80px; position: relative; overflow: hidden; background: linear-gradient(160deg, #f2ede8 0%, #e8f2ee 40%, #f8f0ec 100%); }
+        .hero-parallax { position: absolute; inset: -20% 0; background: url('images/hero_image.png') center center / cover no-repeat; opacity: 0.8; will-change: transform; z-index: 0; }
+        .hero-overlay { position: absolute; inset: 0; background: linear-gradient(100deg, rgba(232,242,238,0.82) 0%, rgba(232,242,238,0.62) 38%, rgba(232,242,238,0.10) 65%, transparent 100%); z-index: 0; }
+        .hero::before { content: ''; position: absolute; top: -150px; right: -150px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(45,95,79,0.10) 0%, transparent 65%); border-radius: 50%; z-index: 1; }
+        .hero::after { content: ''; position: absolute; bottom: -100px; left: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(201,154,131,0.12) 0%, transparent 65%); border-radius: 50%; z-index: 1; }
         .hero-content { max-width: 600px; width: 100%; position: relative; z-index: 2; }
-        /* Frosted glass card behind text */
-        .hero-text {
-            background: rgba(248,246,244,0.72);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border: 1px solid rgba(255,255,255,0.6);
-            border-radius: 24px;
-            padding: 52px 52px 48px;
-            box-shadow: 0 8px 40px rgba(45,95,79,0.08);
-        }
+        .hero-text { background: rgba(248,246,244,0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.6); border-radius: 24px; padding: 52px 52px 48px; box-shadow: 0 8px 40px rgba(45,95,79,0.08); }
         .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 8px 20px; border-radius: 50px; margin-bottom: 28px; background: linear-gradient(135deg, rgba(45,95,79,0.12), rgba(201,154,131,0.12)); border: 1px solid rgba(45,95,79,0.15); font-size: 0.82em; font-weight: 600; color: var(--primary); letter-spacing: 1.5px; }
         .hero-eyebrow::before { content: '✦'; font-size: 0.8em; color: var(--secondary); }
         .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 5em; font-weight: 700; color: var(--primary); line-height: 1.1; margin-bottom: 24px; }
@@ -118,9 +62,6 @@
         .btn-outline { padding: 17px 40px; background: transparent; color: var(--primary); border: 2px solid var(--primary); border-radius: 50px; text-decoration: none; font-size: 1em; font-weight: 600; transition: background 0.25s, color 0.25s; }
         .btn-outline:hover { background: var(--primary); color: white; }
 
-
-
-
         /* ─── SECTION BADGE ───────────────────────── */
         .section-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 20px; border-radius: 50px; margin-bottom: 22px; background: linear-gradient(135deg, rgba(45,95,79,0.1), rgba(201,154,131,0.1)); border: 1px solid rgba(45,95,79,0.15); font-size: 0.82em; font-weight: 600; color: var(--primary); letter-spacing: 1.5px; }
         .section-badge::before { content: '✦'; font-size: 0.75em; color: var(--secondary); }
@@ -131,7 +72,6 @@
         .about-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 420px 1fr; gap: 90px; align-items: start; position: relative; z-index: 1; }
         .about-img-wrap { position: relative; }
         .about-img-wrap img { width: 100%; height: auto; border-radius: 24px; box-shadow: 0 24px 70px rgba(45,95,79,0.18); }
-
         .about-img-badge { position: absolute; bottom: -20px; right: -20px; background: linear-gradient(135deg, var(--secondary), #b8846a); color: white; border-radius: 18px; padding: 18px 24px; text-align: center; box-shadow: 0 12px 40px rgba(201,154,131,0.45); }
         .about-img-badge strong { display: block; font-family: 'Cormorant Garamond', serif; font-size: 2.2em; font-weight: 700; line-height: 1; }
         .about-img-badge span { font-size: 0.78em; opacity: 0.9; font-weight: 400; }
@@ -145,7 +85,6 @@
 
         /* ─── APPROACH ────────────────────────────── */
         .approach { padding: 110px 50px; position: relative; overflow: hidden; background: linear-gradient(180deg, #eef5f2 0%, #f8f6f4 100%); }
-        /* Static decorative ring ornament — no spin */
         .approach::after { content: ''; position: absolute; bottom: -60px; right: -60px; width: 400px; height: 400px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='80' fill='none' stroke='%232d5f4f' stroke-width='1' stroke-dasharray='4 8' opacity='0.12'/%3E%3Ccircle cx='100' cy='100' r='55' fill='none' stroke='%23c99a83' stroke-width='1' stroke-dasharray='4 8' opacity='0.12'/%3E%3Ccircle cx='100' cy='100' r='30' fill='none' stroke='%232d5f4f' stroke-width='1' stroke-dasharray='4 8' opacity='0.12'/%3E%3C/svg%3E") center/contain no-repeat; pointer-events: none; }
         .approach-intro { max-width: 900px; margin: 0 auto 80px; text-align: center; position: relative; z-index: 1; }
         .approach-intro h2 { font-family: 'Cormorant Garamond', serif; font-size: 3.5em; color: var(--primary); font-weight: 700; line-height: 1.2; margin-bottom: 28px; }
@@ -153,17 +92,25 @@
         .section-heading { text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 2.8em; color: var(--primary); font-weight: 700; margin-bottom: 50px; position: relative; z-index: 1; }
         .section-heading::after { content: ''; display: block; width: 60px; height: 3px; margin: 14px auto 0; background: linear-gradient(90deg, var(--primary), var(--secondary)); border-radius: 3px; }
 
-        /* Modality cards */
-        .modalities-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; max-width: 1200px; margin: 0 auto 90px; position: relative; z-index: 1; }
-        .modality-card { background: white; border-radius: 20px; padding: 36px 30px; position: relative; overflow: hidden; transition: box-shadow 0.3s; border: 1px solid rgba(45,95,79,0.07); box-shadow: 0 4px 20px rgba(45,95,79,0.05); }
-        .modality-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--primary), var(--secondary)); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
-        .modality-card:hover { box-shadow: 0 16px 44px rgba(45,95,79,0.12); }
-        .modality-card:hover::before { transform: scaleX(1); }
-        .modality-abbr { display: inline-block; padding: 5px 14px; border-radius: 30px; margin-bottom: 14px; background: linear-gradient(135deg, rgba(45,95,79,0.1), rgba(201,154,131,0.08)); color: var(--primary); font-size: 0.78em; font-weight: 700; letter-spacing: 0.5px; border: 1px solid rgba(45,95,79,0.1); }
-        .modality-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.45em; color: var(--primary); font-weight: 700; margin-bottom: 12px; line-height: 1.3; }
-        .modality-card p { font-size: 0.95em; color: #666; line-height: 1.78; }
+        /* ─── MODALITIES ACCORDION ────────────────── */
+        .modalities-accordion-wrap { max-width: 860px; margin: 0 auto 90px; position: relative; z-index: 1; }
+        .mod-accordion { border: 1px solid rgba(45,95,79,0.12); border-radius: 20px; overflow: hidden; background: white; box-shadow: 0 6px 30px rgba(45,95,79,0.08); }
+        .mod-item { border-bottom: 1px solid rgba(45,95,79,0.09); }
+        .mod-item:last-child { border-bottom: none; }
+        .mod-trigger { width: 100%; background: none; border: none; padding: 22px 28px; display: flex; align-items: center; gap: 16px; cursor: pointer; text-align: left; transition: background 0.2s ease; }
+        .mod-trigger:hover { background: rgba(45,95,79,0.03); }
+        .mod-item.open .mod-trigger { background: rgba(45,95,79,0.04); }
+        .mod-abbr { flex-shrink: 0; min-width: 52px; padding: 4px 10px; border-radius: 20px; text-align: center; font-size: 0.74em; font-weight: 700; letter-spacing: 0.4px; background: rgba(45,95,79,0.09); color: var(--primary); border: 1px solid rgba(45,95,79,0.1); transition: background 0.25s, color 0.25s, border-color 0.25s; }
+        .mod-item.open .mod-abbr { background: var(--primary); color: white; border-color: var(--primary); }
+        .mod-title { flex: 1; font-family: 'Cormorant Garamond', serif; font-size: 1.35em; font-weight: 600; color: var(--primary); line-height: 1.3; }
+        .mod-chevron { flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid rgba(45,95,79,0.22); display: flex; align-items: center; justify-content: center; color: var(--primary); transition: transform 0.35s ease, background 0.25s, border-color 0.25s, color 0.25s; }
+        .mod-chevron svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+        .mod-item.open .mod-chevron { transform: rotate(180deg); background: var(--primary); border-color: var(--primary); color: white; }
+        .mod-body { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1); }
+        .mod-body-inner { padding: 2px 28px 26px calc(28px + 52px + 16px); }
+        .mod-body-inner p { font-size: 1em; color: #5a5a5a; line-height: 1.82; }
 
-        /* Services */
+        /* ─── SERVICES ────────────────────────────── */
         .services-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; max-width: 1080px; margin: 0 auto 90px; position: relative; z-index: 1; }
         .service-card { background: white; border-radius: 20px; padding: 36px 32px; display: flex; gap: 20px; align-items: flex-start; transition: box-shadow 0.3s, border-color 0.3s; border: 1px solid rgba(45,95,79,0.07); box-shadow: 0 4px 20px rgba(45,95,79,0.05); position: relative; overflow: hidden; }
         .service-card::after { content: ''; position: absolute; top: 0; right: 0; width: 80px; height: 80px; background: linear-gradient(225deg, rgba(45,95,79,0.04), transparent); border-radius: 0 20px 0 80px; }
@@ -172,7 +119,7 @@
         .service-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4em; color: var(--primary); font-weight: 700; margin-bottom: 10px; line-height: 1.3; }
         .service-card p { font-size: 0.95em; color: #666; line-height: 1.78; }
 
-        /* Commitment banner */
+        /* ─── COMMITMENT ──────────────────────────── */
         .commitment-banner { max-width: 960px; margin: 0 auto; background: linear-gradient(135deg, var(--primary) 0%, #3d7a66 100%); border-radius: 28px; padding: 66px 80px; text-align: center; position: relative; overflow: hidden; z-index: 1; box-shadow: 0 30px 80px rgba(45,95,79,0.3); }
         .commitment-banner::before { content: '✿'; position: absolute; font-size: 14em; color: rgba(255,255,255,0.04); top: -40px; right: -20px; line-height: 1; }
         .commitment-banner::after { content: '✿'; position: absolute; font-size: 8em; color: rgba(255,255,255,0.04); bottom: -20px; left: -10px; line-height: 1; }
@@ -251,10 +198,7 @@
         /* ─── RESPONSIVE ──────────────────────────── */
         @media (max-width: 1024px) {
             .hero h1 { font-size: 4em; }
-            .stats-inner { grid-template-columns: repeat(2,1fr); }
-            .stat-item:nth-child(2) { border-right: none; }
             .about-inner { grid-template-columns: 1fr; gap: 50px; }
-            .modalities-grid { grid-template-columns: repeat(2,1fr); }
             .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
         }
         @media (max-width: 768px) {
@@ -265,9 +209,8 @@
             .hero { padding: 100px 20px 60px; }
             .hero h1 { font-size: 2.8em; }
             .hero-text { padding: 36px 28px; }
-            .stats-inner { grid-template-columns: repeat(2,1fr); }
             .about, .approach, .values, .contact-section { padding: 70px 20px; }
-            .modalities-grid, .services-grid { grid-template-columns: 1fr; gap: 18px; }
+            .services-grid { grid-template-columns: 1fr; gap: 18px; }
             .values-grid { grid-template-columns: 1fr 1fr; }
             .values-grid .value-card:nth-child(5), .values-grid .value-card:nth-child(6), .values-grid .value-card:nth-child(7) { grid-column: auto; }
             .contact-inner { grid-template-columns: 1fr; gap: 40px; }
@@ -276,6 +219,8 @@
             .commitment-banner { padding: 48px 30px; }
             .commitment-banner h3 { font-size: 2.2em; }
             .footer-inner { grid-template-columns: 1fr; gap: 36px; }
+            .mod-trigger { padding: 18px 20px; gap: 12px; }
+            .mod-body-inner { padding: 2px 20px 22px 20px; }
         }
     </style>
 </head>
@@ -321,13 +266,8 @@
                     <a href="#about" class="btn-outline">Meet Dr. Barnes-Tracey</a>
                 </div>
             </div>
-
         </div>
     </section>
-
-
-
-
 
     <!-- ABOUT -->
     <section id="about" class="about">
@@ -340,10 +280,10 @@
                 <span class="about-eyebrow">MEET YOUR THERAPIST</span>
                 <h2>Dr. Patrice Barnes-Tracey</h2>
                 <p class="about-credentials">PhD, LCSW, LMSW &nbsp;·&nbsp; Owner &amp; Founder</p>
-                <div class="pull-quote"><p>Widely recognized for her innovative and integrative approach to social work practice — bridging theory, research, and compassionate clinical care.</p></div>
-                <p>Dr. Patrice Barnes-Tracey earned both her Master's degree and Ph.D. from the Graduate School of Social Service at Fordham University. Her scholarly work has made meaningful contributions to the advancement of child welfare practice, with particular emphasis on improving outcomes for children and families impacted by complex trauma, systemic inequities, and mental health challenges.</p>
-                <p>Dr. Barnes-Tracey is an expert in child welfare practice and mental health, with a career spanning direct service, leadership, clinical practice, and higher education. Her professional journey includes extensive tenure within public and nonprofit social service systems across Connecticut and New York. Her clinical focus includes trauma-informed care, mindfulness-based interventions, and evidence-informed approaches that promote healing, resilience, and emotional regulation.</p>
-                <p>She is also an adjunct lecturer at several colleges and universities throughout New York and Connecticut, a professional speaker, and a dedicated mentor to both emerging and seasoned social workers.</p>
+                <!-- <div class="pull-quote"><p>Widely recognized for her innovative and integrative approach to social work practice — bridging theory, research, and compassionate clinical care.</p></div> -->
+                <p>Dr. Patrice Barnes-Tracey earned both her Master’s degree and Ph.D. from the Graduate School of Social Service at Fordham University. She brings a depth of knowledge and compassion to her work, with a strong commitment to supporting children, individuals, and families navigating complex life challenges.</p>
+                <p>With extensive experience in child welfare and mental health, Dr. Barnes-Tracey has worked across direct service, clinical practice, leadership, and higher education settings throughout Connecticut and New York. Her work has focused on helping those impacted by trauma, systemic inequities, and emotional distress to find healing and stability.</p>
+                <p>Dr. Barnes-Tracey’s clinical approach is grounded in trauma-informed care and integrates mindfulness-based and evidence-informed practices. She strives to create a safe, supportive, and collaborative environment where clients can build resilience, strengthen emotional regulation, and move toward meaningful change.</p>
             </div>
         </div>
     </section>
@@ -364,18 +304,94 @@
             <p>We use evidence-based and holistic treatment modalities to support emotional wellness, strengthen relationships, and build lifelong coping skills.</p>
         </div>
 
+        <!-- Treatment Modalities Accordion -->
         <h3 id="modalities" class="section-heading">Our Treatment Modalities</h3>
-        <div class="modalities-grid">
-            <div class="modality-card"><span class="modality-abbr">TF-CBT</span><h3>Trauma-Focused Cognitive Behavioral Therapy</h3><p>An evidence-based approach designed to help children, adolescents, and families overcome the impact of trauma by addressing distressing thoughts, emotions, and experiences in a safe and structured way.</p></div>
-            <div class="modality-card"><span class="modality-abbr">CBT</span><h3>Cognitive Behavioral Therapy</h3><p>CBT helps individuals understand how thoughts, feelings, and behaviors are connected. Clients learn practical tools to manage anxiety, depression, and life stressors by changing unhelpful thinking patterns.</p></div>
-            <div class="modality-card"><span class="modality-abbr">DBT</span><h3>Dialectical Behavior Therapy</h3><p>DBT focuses on building skills in emotional regulation, distress tolerance, mindfulness, and healthy relationships. It is especially helpful for individuals who experience intense emotions.</p></div>
-            <div class="modality-card"><span class="modality-abbr">SFBT</span><h3>Solution-Focused Brief Therapy</h3><p>A goal-oriented approach that focuses on solutions rather than problems. SFBT helps clients identify strengths and create practical steps toward achieving their desired outcomes.</p></div>
-            <div class="modality-card"><span class="modality-abbr">ABT</span><h3>Attachment-Based Therapy</h3><p>This approach focuses on strengthening emotional bonds, particularly within families. It is especially beneficial for children and caregivers building trust, security, and healthy relationships.</p></div>
-            <div class="modality-card"><span class="modality-abbr">MBT</span><h3>Mindfulness-Based Therapy</h3><p>Incorporates mindfulness practices to help clients stay present, reduce stress, and improve emotional awareness — supporting overall mental wellness and resilience.</p></div>
-            <div class="modality-card"><span class="modality-abbr">MI</span><h3>Motivational Interviewing</h3><p>A collaborative, client-centered approach that helps individuals explore and resolve ambivalence about change. MI is especially effective for building motivation and confidence.</p></div>
-            <div class="modality-card"><span class="modality-abbr">SBT</span><h3>Strengths-Based Therapy</h3><p>This approach focuses on identifying and building upon each client's strengths, resilience, and inner resources to foster empowerment and growth.</p></div>
-            <div class="modality-card"><span class="modality-abbr">PSC</span><h3>Psychoeducation &amp; Skills Coaching</h3><p>We provide education and practical tools to help clients and families better understand mental health, improve communication, and develop effective coping and parenting strategies.</p></div>
-        </div>
+        <div class="modalities-accordion-wrap">
+            <div class="mod-accordion" id="modAccordion">
+
+                <div class="mod-item">
+                    <button class="mod-trigger" aria-expanded="false">
+                        <span class="mod-abbr">TF-CBT</span>
+                        <span class="mod-title">Trauma-Focused Cognitive Behavioral Therapy</span>
+                        <span class="mod-chevron"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span>
+                    </button>
+                    <div class="mod-body"><div class="mod-body-inner"><p>An evidence-based approach designed to help children, adolescents, and families overcome the impact of trauma by addressing distressing thoughts, emotions, and experiences in a safe and structured way.</p></div></div>
+                </div>
+
+                <div class="mod-item">
+                    <button class="mod-trigger" aria-expanded="false">
+                        <span class="mod-abbr">CBT</span>
+                        <span class="mod-title">Cognitive Behavioral Therapy</span>
+                        <span class="mod-chevron"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span>
+                    </button>
+                    <div class="mod-body"><div class="mod-body-inner"><p>CBT helps individuals understand how thoughts, feelings, and behaviors are connected. Clients learn practical tools to manage anxiety, depression, and life stressors by changing unhelpful thinking patterns.</p></div></div>
+                </div>
+
+                <div class="mod-item">
+                    <button class="mod-trigger" aria-expanded="false">
+                        <span class="mod-abbr">DBT</span>
+                        <span class="mod-title">Dialectical Behavior Therapy</span>
+                        <span class="mod-chevron"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span>
+                    </button>
+                    <div class="mod-body"><div class="mod-body-inner"><p>DBT focuses on building skills in emotional regulation, distress tolerance, mindfulness, and healthy relationships. It is especially helpful for individuals who experience intense emotions.</p></div></div>
+                </div>
+
+                <div class="mod-item">
+                    <button class="mod-trigger" aria-expanded="false">
+                        <span class="mod-abbr">SFBT</span>
+                        <span class="mod-title">Solution-Focused Brief Therapy</span>
+                        <span class="mod-chevron"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span>
+                    </button>
+                    <div class="mod-body"><div class="mod-body-inner"><p>A goal-oriented approach that focuses on solutions rather than problems. SFBT helps clients identify strengths and create practical steps toward achieving their desired outcomes.</p></div></div>
+                </div>
+
+                <div class="mod-item">
+                    <button class="mod-trigger" aria-expanded="false">
+                        <span class="mod-abbr">ABT</span>
+                        <span class="mod-title">Attachment-Based Therapy</span>
+                        <span class="mod-chevron"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span>
+                    </button>
+                    <div class="mod-body"><div class="mod-body-inner"><p>This approach focuses on strengthening emotional bonds, particularly within families. It is especially beneficial for children and caregivers building trust, security, and healthy relationships.</p></div></div>
+                </div>
+
+                <div class="mod-item">
+                    <button class="mod-trigger" aria-expanded="false">
+                        <span class="mod-abbr">MBT</span>
+                        <span class="mod-title">Mindfulness-Based Therapy</span>
+                        <span class="mod-chevron"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span>
+                    </button>
+                    <div class="mod-body"><div class="mod-body-inner"><p>Incorporates mindfulness practices to help clients stay present, reduce stress, and improve emotional awareness — supporting overall mental wellness and resilience.</p></div></div>
+                </div>
+
+                <div class="mod-item">
+                    <button class="mod-trigger" aria-expanded="false">
+                        <span class="mod-abbr">MI</span>
+                        <span class="mod-title">Motivational Interviewing</span>
+                        <span class="mod-chevron"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span>
+                    </button>
+                    <div class="mod-body"><div class="mod-body-inner"><p>A collaborative, client-centered approach that helps individuals explore and resolve ambivalence about change. MI is especially effective for building motivation and confidence.</p></div></div>
+                </div>
+
+                <div class="mod-item">
+                    <button class="mod-trigger" aria-expanded="false">
+                        <span class="mod-abbr">SBT</span>
+                        <span class="mod-title">Strengths-Based Therapy</span>
+                        <span class="mod-chevron"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span>
+                    </button>
+                    <div class="mod-body"><div class="mod-body-inner"><p>This approach focuses on identifying and building upon each client's strengths, resilience, and inner resources to foster empowerment and growth.</p></div></div>
+                </div>
+
+                <div class="mod-item">
+                    <button class="mod-trigger" aria-expanded="false">
+                        <span class="mod-abbr">PSC</span>
+                        <span class="mod-title">Psychoeducation &amp; Skills Coaching</span>
+                        <span class="mod-chevron"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span>
+                    </button>
+                    <div class="mod-body"><div class="mod-body-inner"><p>We provide education and practical tools to help clients and families better understand mental health, improve communication, and develop effective coping and parenting strategies.</p></div></div>
+                </div>
+
+            </div><!-- /.mod-accordion -->
+        </div><!-- /.modalities-accordion-wrap -->
 
         <h3 id="services" class="section-heading">Our Services</h3>
         <div class="services-grid">
@@ -539,13 +555,34 @@
         const heroParallax = document.getElementById('heroParallax');
         if (heroParallax) {
             window.addEventListener('scroll', () => {
-                const scrolled = window.scrollY;
-                // Respect reduced-motion preference
                 if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                    heroParallax.style.transform = `translateY(${scrolled * 0.3}px)`;
+                    heroParallax.style.transform = `translateY(${window.scrollY * 0.3}px)`;
                 }
             }, { passive: true });
         }
+
+        // ── Modalities Accordion ───────────────────────────────────
+        document.querySelectorAll('#modAccordion .mod-trigger').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const item = trigger.closest('.mod-item');
+                const body = item.querySelector('.mod-body');
+                const isOpen = item.classList.contains('open');
+
+                // Close all open items
+                document.querySelectorAll('#modAccordion .mod-item.open').forEach(openItem => {
+                    openItem.classList.remove('open');
+                    openItem.querySelector('.mod-trigger').setAttribute('aria-expanded', 'false');
+                    openItem.querySelector('.mod-body').style.maxHeight = '0';
+                });
+
+                // Open the clicked item if it was closed
+                if (!isOpen) {
+                    item.classList.add('open');
+                    trigger.setAttribute('aria-expanded', 'true');
+                    body.style.maxHeight = body.scrollHeight + 'px';
+                }
+            });
+        });
 
         // Contact form submit
         function submitForm() {
