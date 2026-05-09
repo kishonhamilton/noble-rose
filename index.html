@@ -57,19 +57,21 @@
         .mobile-menu .mobile-cta { margin-top: 8px; background: var(--primary); color: white !important; text-align: center; border-radius: 30px; }
 
         /* ─── HERO ────────────────────────────────── */
+        /* ─── HERO ────────────────────────────────── */
         .hero { min-height: 100vh; display: flex; align-items: center; justify-content: flex-start; padding: 120px 50px 80px; position: relative; overflow: hidden; background: linear-gradient(160deg, #f2ede8 0%, #e8f2ee 40%, #f8f0ec 100%); }
-        .hero-parallax { position: absolute; inset: -20% 0; background: url('images/hero_image.png') center center / cover no-repeat; opacity: 0.8; will-change: transform; z-index: 0; }
+        .hero-parallax { position: absolute; inset: -20% 0; background: url('images/hero_image.jpeg') center center / cover no-repeat; opacity: 0.8; will-change: transform; z-index: 0; }
         .hero-overlay { position: absolute; inset: 0; background: linear-gradient(100deg, rgba(232,242,238,0.82) 0%, rgba(232,242,238,0.62) 38%, rgba(232,242,238,0.10) 65%, transparent 100%); z-index: 0; }
         .hero::before { content: ''; position: absolute; top: -150px; right: -150px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(45,95,79,0.10) 0%, transparent 65%); border-radius: 50%; z-index: 1; }
         .hero::after { content: ''; position: absolute; bottom: -100px; left: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(201,154,131,0.12) 0%, transparent 65%); border-radius: 50%; z-index: 1; }
-        .hero-content { max-width: 600px; width: 100%; position: relative; z-index: 2; }
-        .hero-text { background: rgba(248,246,244,0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.6); border-radius: 24px; padding: 52px 52px 48px; box-shadow: 0 8px 40px rgba(45,95,79,0.08); }
-        .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 8px 20px; border-radius: 50px; margin-bottom: 28px; background: linear-gradient(135deg, rgba(45,95,79,0.12), rgba(201,154,131,0.12)); border: 1px solid rgba(45,95,79,0.15); font-size: 0.82em; font-weight: 600; color: var(--primary); letter-spacing: 1.5px; }
+        .hero-content { width: 100%; display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; position: relative; z-index: 2; }
+        .hero-text { max-width: 560px; flex-shrink: 0; background: rgba(248,246,244,0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.6); border-radius: 24px; padding: 52px 52px 48px; box-shadow: 0 8px 40px rgba(45,95,79,0.08); }
+        .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 8px 20px; border-radius: 50px; margin-bottom: 28px; background: linear-gradient(135deg, rgba(45,95,79,0.12), rgba(201,154,131,0.12)); border: 1px solid rgba(45,95,79,0.15); font-size: 1.05em; font-weight: 700; color: var(--primary); letter-spacing: 2px; }
         .hero-eyebrow::before { content: '✦'; font-size: 0.8em; color: var(--secondary); }
-        .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 5em; font-weight: 700; color: var(--primary); line-height: 1.1; margin-bottom: 24px; }
-        .hero h1 em { font-style: italic; font-weight: 300; background: linear-gradient(135deg, var(--secondary), #a06a50); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .hero-subtitle { font-size: 1.2em; color: var(--secondary); font-weight: 400; margin-bottom: 22px; line-height: 1.65; }
         .hero-description { font-size: 1.05em; color: var(--mid); line-height: 1.85; }
+        .hero-tagline { flex-shrink: 0; text-align: right; position: relative; z-index: 2; background: rgba(248,246,244,0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.6); border-radius: 24px; padding: 36px 44px; box-shadow: 0 8px 40px rgba(45,95,79,0.08); }
+        .hero-tagline h1 { font-family: 'Cormorant Garamond', serif; font-size: 5em; font-weight: 700; color: var(--primary); line-height: 1.1; white-space: nowrap; }
+        .hero-tagline h1 em { font-style: italic; font-weight: 300; background: linear-gradient(135deg, var(--secondary), #a06a50); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 40px; }
         .btn-primary { padding: 17px 40px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: white; border-radius: 50px; text-decoration: none; font-size: 1em; font-weight: 600; box-shadow: 0 8px 24px rgba(45,95,79,0.35); transition: box-shadow 0.25s; }
         .btn-primary:hover { box-shadow: 0 14px 36px rgba(45,95,79,0.4); }
@@ -157,7 +159,7 @@
         .value-card:nth-child(6) { background: linear-gradient(160deg, #f5f0f7, #eee8f5); }
         .value-card:nth-child(7) { background: linear-gradient(160deg, #f7f4f0, #f2eee8); grid-column: 2; }
         .value-card:hover { box-shadow: 0 20px 50px rgba(45,95,79,0.12); }
-        .value-emoji { font-size: 2.8em; margin-bottom: 16px; display: block; line-height: 1; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.08)); }
+        .value-emoji { width: 68px; height: 68px; margin: 0 auto 18px; display: block; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.08)); }
         .value-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5em; color: var(--primary); font-weight: 700; margin-bottom: 12px; }
         .value-card p { font-size: 0.92em; color: #666; line-height: 1.78; }
 
@@ -224,8 +226,11 @@
             .nav-hamburger { display: flex; }
             .logo-text { font-size: 1.4em; }
             .hero { padding: 100px 20px 60px; }
-            .hero h1 { font-size: 2.8em; }
+            .hero-content { flex-direction: column; align-items: flex-start; gap: 32px; }
+            .hero-text { max-width: 100%; }
             .hero-text { padding: 36px 28px; }
+            .hero-tagline { text-align: left; padding: 28px 28px; }
+            .hero-tagline h1 { font-size: 2.8em; white-space: normal; }
             .about, .approach, .values, .contact-section { padding: 70px 20px; }
             .services-grid { grid-template-columns: 1fr; gap: 18px; }
             .values-grid { grid-template-columns: 1fr 1fr; }
@@ -277,13 +282,15 @@
         <div class="hero-content">
             <div class="hero-text">
                 <div class="hero-eyebrow">COUNSELING &amp; WELLNESS</div>
-                <h1>Nurturing <em>Growth,</em> Inspiring Wellness</h1>
                 <p class="hero-subtitle">Professional counseling services designed to help you thrive</p>
                 <p class="hero-description">Welcome to Noble Rose Counseling &amp; Wellness, where compassionate care meets evidence-based therapeutic practices. We offer a sanctuary for healing, growth, and transformation for children, adolescents, adults, and families.</p>
                 <div class="hero-btns">
                     <a href="#services" class="btn-primary">Explore Services</a>
                     <a href="#about" class="btn-outline">Meet Dr. Barnes-Tracey</a>
                 </div>
+            </div>
+            <div class="hero-tagline">
+                <h1>Nurturing <em>Growth,</em> Inspiring Wellness</h1>
             </div>
         </div>
     </section>
@@ -298,7 +305,7 @@
             <div>
                 <span class="about-eyebrow">MEET YOUR THERAPIST</span>
                 <h2>Dr. Patrice Barnes-Tracey</h2>
-                <p class="about-credentials">PhD, LCSW, LMSW &nbsp;·&nbsp; Owner &amp; Founder</p>
+                <p class="about-credentials">PhD, LCSW, LMSW &nbsp;·&nbsp; Founder &amp; CEO</p>
                 <!-- <div class="pull-quote"><p>Widely recognized for her innovative and integrative approach to social work practice — bridging theory, research, and compassionate clinical care.</p></div> -->
                 <p>Dr. Patrice Barnes-Tracey brings a depth of knowledge and compassion to her work, with a strong commitment to supporting children, individuals, and families navigating complex life challenges.</p>
                 <p>With extensive experience in child welfare and mental health, Dr. Barnes-Tracey has worked across direct service, clinical practice, leadership, and higher education settings throughout Connecticut and New York. Her work has focused on helping those impacted by trauma, systemic inequities, and emotional distress to find healing and stability.</p>
@@ -319,13 +326,13 @@
     <section id="approach" class="approach">
         <div class="approach-intro">
             <span class="section-badge">OUR PHILOSOPHY</span>
-            <h2>Our Approach to Healing &amp; Growth</h2>
+            <h2 class="section-heading">Our Approach to Healing &amp; Growth</h2>
             <p>At Noble Rose Counseling &amp; Wellness, we believe that every individual and family has the capacity to heal, grow, and thrive. Our approach is compassionate, culturally responsive, and tailored to meet the unique needs of children, adolescents, adults and families.</p>
             <p>We use evidence-based and holistic treatment modalities to support emotional wellness, strengthen relationships, and build lifelong coping skills.</p>
         </div>
 
         <!-- Treatment Modalities Accordion -->
-        <h3 id="modalities" class="section-heading">Our Treatment Modalities</h3>
+        <h2 id="modalities" class="section-heading">Our Treatment Modalities</h2>
         <div class="modalities-accordion-wrap">
             <div class="mod-accordion" id="modAccordion">
 
@@ -395,7 +402,7 @@
             </div><!-- /.mod-accordion -->
         </div><!-- /.modalities-accordion-wrap -->
 
-        <h3 id="services" class="section-heading">Our Services</h3>
+        <h2 id="services" class="section-heading">Our Services</h2>
         <div class="services-grid">
             <div class="service-card"><div class="service-icon-wrap">🌿</div><div><h3>Individual Therapy</h3><p>One-on-one counseling tailored to support personal growth, emotional healing, and mental wellness — a safe, confidential space for anxiety, depression, trauma, and life transitions.</p></div></div>
             <div class="service-card"><div class="service-icon-wrap">🤝</div><div><h3>Family Therapy</h3><p>Focuses on improving communication, resolving conflicts, and strengthening relationships within the family system — creating healthier dynamics and deeper connections.</p></div></div>
@@ -423,17 +430,17 @@
     <section id="values" class="values">
         <div class="values-intro">
             <span class="section-badge">WHO WE ARE</span>
-            <h2>Our Core Values</h2>
+            <h2 class="section-heading">Our Core Values</h2>
             <p>At Noble Rose Counseling &amp; Wellness, our core values guide everything we do. They reflect who we are, how we work, and the experience we strive to create for every client and family.</p>
         </div>
         <div class="values-grid">
-            <div class="value-card"><span class="value-emoji">💛</span><h3>Compassion</h3><p>We approach each individual and family with empathy, understanding, and kindness, creating a safe space for healing and growth.</p></div>
-            <div class="value-card"><span class="value-emoji">🛡️</span><h3>Integrity</h3><p>We uphold honesty, transparency, and professionalism in all interactions, fostering trust and accountability.</p></div>
-            <div class="value-card"><span class="value-emoji">🌱</span><h3>Empowerment</h3><p>We believe in nurturing each client's strengths and resilience, helping them build confidence and take charge of their healing journey.</p></div>
-            <div class="value-card"><span class="value-emoji">🤝</span><h3>Collaboration</h3><p>We partner with clients, families, and communities to create meaningful change and lasting support.</p></div>
-            <div class="value-card"><span class="value-emoji">🌈</span><h3>Inclusivity</h3><p>We honor diversity and provide culturally responsive care, embracing every person's unique background, identity, and experiences.</p></div>
-            <div class="value-card"><span class="value-emoji">🌸</span><h3>Growth</h3><p>We are committed to continuous learning, personal development, and supporting lifelong emotional wellness.</p></div>
-            <div class="value-card"><span class="value-emoji">🙏</span><h3>Respect</h3><p>We value and honor the dignity, experiences, and perspectives of every individual and family we serve.</p></div>
+            <div class="value-card"><h3>Compassion</h3><p>We approach each individual and family with empathy, understanding, and kindness, creating a safe space for healing and growth.</p></div>
+            <div class="value-card"><h3>Integrity</h3><p>We uphold honesty, transparency, and professionalism in all interactions, fostering trust and accountability.</p></div>
+            <div class="value-card"><h3>Empowerment</h3><p>We believe in nurturing each client's strengths and resilience, helping them build confidence and take charge of their healing journey.</p></div>
+            <div class="value-card"><h3>Collaboration</h3><p>We partner with clients, families, and communities to create meaningful change and lasting support.</p></div>
+            <div class="value-card"><h3>Inclusivity</h3><p>We honor diversity and provide culturally responsive care, embracing every person's unique background, identity, and experiences.</p></div>
+            <div class="value-card"><h3>Growth</h3><p>We are committed to continuous learning, personal development, and supporting lifelong emotional wellness.</p></div>
+            <div class="value-card"><h3>Respect</h3><p>We value and honor the dignity, experiences, and perspectives of every individual and family we serve.</p></div>
         </div>
     </section>
 
