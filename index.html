@@ -17,6 +17,7 @@
     <link rel="icon" type="image/jpeg" href="images/noble_rose_logo.jpeg">
     <link rel="apple-touch-icon" href="images/noble_rose_logo.jpeg">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -159,7 +160,15 @@
         .value-card:nth-child(6) { background: linear-gradient(160deg, #f5f0f7, #eee8f5); }
         .value-card:nth-child(7) { background: linear-gradient(160deg, #f7f4f0, #f2eee8); grid-column: 2; }
         .value-card:hover { box-shadow: 0 20px 50px rgba(45,95,79,0.12); }
-        .value-emoji { width: 68px; height: 68px; margin: 0 auto 18px; display: block; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.08)); }
+        .value-icon { width: 64px; height: 64px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; border-radius: 18px; background: rgba(255,255,255,0.7); box-shadow: 0 4px 16px rgba(45,95,79,0.10); }
+        .value-icon i { font-size: 1.7rem; }
+        .value-card:nth-child(1) .value-icon i { color: #c9784c; }
+        .value-card:nth-child(2) .value-icon i { color: #2d5f4f; }
+        .value-card:nth-child(3) .value-icon i { color: #4a7c59; }
+        .value-card:nth-child(4) .value-icon i { color: #3a6080; }
+        .value-card:nth-child(5) .value-icon i { color: #7c4a7a; }
+        .value-card:nth-child(6) .value-icon i { color: #5a7c3a; }
+        .value-card:nth-child(7) .value-icon i { color: #c9973a; }
         .value-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5em; color: var(--primary); font-weight: 700; margin-bottom: 12px; }
         .value-card p { font-size: 0.92em; color: #666; line-height: 1.78; }
 
@@ -440,13 +449,13 @@
             <p>At Noble Rose Counseling &amp; Wellness, our core values guide everything we do. They reflect who we are, how we work, and the experience we strive to create for every client and family.</p>
         </div>
         <div class="values-grid">
-            <div class="value-card"><h3>Compassion</h3><p>We approach each individual and family with empathy, understanding, and kindness, creating a safe space for healing and growth.</p></div>
-            <div class="value-card"><h3>Integrity</h3><p>We uphold honesty, transparency, and professionalism in all interactions, fostering trust and accountability.</p></div>
-            <div class="value-card"><h3>Empowerment</h3><p>We believe in nurturing each client's strengths and resilience, helping them build confidence and take charge of their healing journey.</p></div>
-            <div class="value-card"><h3>Collaboration</h3><p>We partner with clients, families, and communities to create meaningful change and lasting support.</p></div>
-            <div class="value-card"><h3>Inclusivity</h3><p>We honor diversity and provide culturally responsive care, embracing every person's unique background, identity, and experiences.</p></div>
-            <div class="value-card"><h3>Growth</h3><p>We are committed to continuous learning, personal development, and supporting lifelong emotional wellness.</p></div>
-            <div class="value-card"><h3>Respect</h3><p>We value and honor the dignity, experiences, and perspectives of every individual and family we serve.</p></div>
+            <div class="value-card"><div class="value-icon"><i class="fa-regular fa-heart"></i></div><h3>Compassion</h3><p>We approach each individual and family with empathy, understanding, and kindness, creating a safe space for healing and growth.</p></div>
+            <div class="value-card"><div class="value-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>Integrity</h3><p>We uphold honesty, transparency, and professionalism in all interactions, fostering trust and accountability.</p></div>
+            <div class="value-card"><div class="value-icon"><i class="fa-solid fa-seedling"></i></div><h3>Empowerment</h3><p>We believe in nurturing each client's strengths and resilience, helping them build confidence and take charge of their healing journey.</p></div>
+            <div class="value-card"><div class="value-icon"><i class="fa-regular fa-handshake"></i></div><h3>Collaboration</h3><p>We partner with clients, families, and communities to create meaningful change and lasting support.</p></div>
+            <div class="value-card"><div class="value-icon"><i class="fa-solid fa-people-group"></i></div><h3>Inclusivity</h3><p>We honor diversity and provide culturally responsive care, embracing every person's unique background, identity, and experiences.</p></div>
+            <div class="value-card"><div class="value-icon"><i class="fa-solid fa-chart-line"></i></div><h3>Growth</h3><p>We are committed to continuous learning, personal development, and supporting lifelong emotional wellness.</p></div>
+            <div class="value-card"><div class="value-icon"><i class="fa-solid fa-hands-praying"></i></div><h3>Respect</h3><p>We value and honor the dignity, experiences, and perspectives of every individual and family we serve.</p></div>
         </div>
     </section>
 
