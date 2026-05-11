@@ -160,15 +160,31 @@
         .value-card:nth-child(6) { background: linear-gradient(160deg, #f5f0f7, #eee8f5); }
         .value-card:nth-child(7) { background: linear-gradient(160deg, #f7f4f0, #f2eee8); grid-column: 2; }
         .value-card:hover { box-shadow: 0 20px 50px rgba(45,95,79,0.12); }
-        .value-icon { width: 64px; height: 64px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; border-radius: 18px; background: rgba(255,255,255,0.7); box-shadow: 0 4px 16px rgba(45,95,79,0.10); }
-        .value-icon i { font-size: 1.7rem; }
-        .value-card:nth-child(1) .value-icon i { color: #c9784c; }
-        .value-card:nth-child(2) .value-icon i { color: #2d5f4f; }
-        .value-card:nth-child(3) .value-icon i { color: #4a7c59; }
-        .value-card:nth-child(4) .value-icon i { color: #3a6080; }
-        .value-card:nth-child(5) .value-icon i { color: #7c4a7a; }
-        .value-card:nth-child(6) .value-icon i { color: #5a7c3a; }
-        .value-card:nth-child(7) .value-icon i { color: #c9973a; }
+        .value-icon { width: 72px; height: 72px; margin: 0 auto 24px; display: flex; align-items: center; justify-content: center; border-radius: 22px; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .value-icon::before { content: ''; position: absolute; inset: -3px; border-radius: 25px; opacity: 0.2; z-index: 0; }
+        .value-icon i { font-size: 1.75rem; color: #fff; position: relative; z-index: 1; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15)); }
+        .value-card:hover .value-icon { transform: translateY(-4px) scale(1.06); }
+        /* Compassion — warm rose */
+        .value-card:nth-child(1) .value-icon { background: linear-gradient(135deg, #e8826a, #c9563a); box-shadow: 0 8px 24px rgba(201,86,58,0.35); }
+        .value-card:nth-child(1) .value-icon::before { background: linear-gradient(135deg, #e8826a, #c9563a); }
+        /* Integrity — deep teal */
+        .value-card:nth-child(2) .value-icon { background: linear-gradient(135deg, #3d8c72, #2d5f4f); box-shadow: 0 8px 24px rgba(45,95,79,0.35); }
+        .value-card:nth-child(2) .value-icon::before { background: linear-gradient(135deg, #3d8c72, #2d5f4f); }
+        /* Empowerment — sage green */
+        .value-card:nth-child(3) .value-icon { background: linear-gradient(135deg, #6aab7e, #4a7c59); box-shadow: 0 8px 24px rgba(74,124,89,0.35); }
+        .value-card:nth-child(3) .value-icon::before { background: linear-gradient(135deg, #6aab7e, #4a7c59); }
+        /* Collaboration — ocean blue */
+        .value-card:nth-child(4) .value-icon { background: linear-gradient(135deg, #5b8fba, #3a6080); box-shadow: 0 8px 24px rgba(58,96,128,0.35); }
+        .value-card:nth-child(4) .value-icon::before { background: linear-gradient(135deg, #5b8fba, #3a6080); }
+        /* Inclusivity — plum */
+        .value-card:nth-child(5) .value-icon { background: linear-gradient(135deg, #a86ba4, #7c4a7a); box-shadow: 0 8px 24px rgba(124,74,122,0.35); }
+        .value-card:nth-child(5) .value-icon::before { background: linear-gradient(135deg, #a86ba4, #7c4a7a); }
+        /* Growth — olive green */
+        .value-card:nth-child(6) .value-icon { background: linear-gradient(135deg, #86b050, #5a7c3a); box-shadow: 0 8px 24px rgba(90,124,58,0.35); }
+        .value-card:nth-child(6) .value-icon::before { background: linear-gradient(135deg, #86b050, #5a7c3a); }
+        /* Respect — warm gold */
+        .value-card:nth-child(7) .value-icon { background: linear-gradient(135deg, #e0b050, #c9973a); box-shadow: 0 8px 24px rgba(201,151,58,0.35); }
+        .value-card:nth-child(7) .value-icon::before { background: linear-gradient(135deg, #e0b050, #c9973a); }
         .value-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5em; color: var(--primary); font-weight: 700; margin-bottom: 12px; }
         .value-card p { font-size: 0.92em; color: #666; line-height: 1.78; }
 
