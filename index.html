@@ -260,10 +260,30 @@
         .footer-col a:hover { color: var(--secondary); }
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 28px; text-align: center; font-size: 0.87em; color: rgba(255,255,255,0.26); }
 
+        /* ─── SOCIAL SECTION ─────────────────────── */
+        .social-section { padding: 90px 50px; background: linear-gradient(160deg, #f8f4f0 0%, #eef5f1 50%, #f4f0f8 100%); text-align: center; }
+        .social-section .section-badge { display: inline-block; margin-bottom: 16px; }
+        .social-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.6em; color: var(--primary); font-weight: 700; margin-bottom: 14px; }
+        .social-section > p { font-size: 1.05em; color: #666; max-width: 520px; margin: 0 auto 52px; line-height: 1.8; }
+        .social-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; }
+        .social-card { background: white; border-radius: 24px; padding: 40px 28px; text-decoration: none; border: 1px solid rgba(45,95,79,0.08); box-shadow: 0 6px 28px rgba(45,95,79,0.07); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+        .social-card:hover { transform: translateY(-6px); box-shadow: 0 18px 48px rgba(45,95,79,0.14); }
+        .social-card-icon { width: 72px; height: 72px; border-radius: 22px; display: flex; align-items: center; justify-content: center; }
+        .social-card-icon i { font-size: 2rem; color: white; }
+        .social-card--instagram .social-card-icon { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); box-shadow: 0 8px 24px rgba(220,39,67,0.35); }
+        .social-card--psychtoday .social-card-icon { background: linear-gradient(135deg, #5ab5a0, #2e8b74); box-shadow: 0 8px 24px rgba(46,139,116,0.35); }
+        .social-card--facebook .social-card-icon { background: linear-gradient(135deg, #4f80d4, #1877f2); box-shadow: 0 8px 24px rgba(24,119,242,0.35); }
+        .social-card--email .social-card-icon { background: linear-gradient(135deg, #3d8c72, #2d5f4f); box-shadow: 0 8px 24px rgba(45,95,79,0.35); }
+        .social-card-name { font-family: 'Cormorant Garamond', serif; font-size: 1.3em; font-weight: 700; color: var(--primary); }
+        .social-card-handle { font-size: 0.88em; color: #888; }
+        .social-card-cta { margin-top: 8px; font-size: 0.82em; font-weight: 600; color: var(--primary); letter-spacing: 0.5px; padding: 8px 20px; border-radius: 30px; background: rgba(45,95,79,0.07); border: 1px solid rgba(45,95,79,0.12); transition: background 0.2s; }
+        .social-card:hover .social-card-cta { background: rgba(45,95,79,0.14); }
+
         /* ─── RESPONSIVE ──────────────────────────── */
         @media (max-width: 1024px) {
             .about-inner { grid-template-columns: 1fr; gap: 50px; }
             .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+            .social-cards { grid-template-columns: repeat(2, 1fr); gap: 20px; }
         }
         /* ─── BACK TO TOP ─────────────────────────── */
         .back-to-top { position: fixed; bottom: 32px; right: 32px; width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: white; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 24px rgba(45,95,79,0.35); opacity: 0; pointer-events: none; transition: opacity 0.3s, box-shadow 0.25s; z-index: 900; }
@@ -298,6 +318,9 @@
             .form-row { grid-template-columns: 1fr; gap: 0; }
             .commitment-banner { padding: 48px 30px; }
             .commitment-banner h3 { font-size: 2.2em; }
+            .social-section { padding: 70px 20px; }
+            .social-cards { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+            .social-card { padding: 32px 20px; }
             .footer-inner { grid-template-columns: 1fr; gap: 36px; }
             .mod-trigger { padding: 18px 20px; gap: 12px; }
             .mod-body-inner { padding: 2px 20px 22px 20px; }
@@ -348,7 +371,7 @@
                 </div>
             </div>
             <div class="hero-tagline">
-                <h1>Nurturing <em>Growth,</em> Inspiring Wellness</h1>
+                <h1>Nurturing <em>Growth,</em> Inspiring <em>Wellness</em></h1>
             </div>
         </div>
     </section>
@@ -501,6 +524,39 @@
         </div>
     </section>
 
+    <!-- CONNECT / SOCIAL -->
+    <section class="social-section">
+        <span class="section-badge">STAY CONNECTED</span>
+        <h2>Find Us Online</h2>
+        <p>Follow our journey, read client reviews, and reach out through the platforms below.</p>
+        <div class="social-cards">
+            <a class="social-card social-card--email" href="mailto:thenoblerosellc@gmail.com">
+                <div class="social-card-icon"><i class="fa-solid fa-envelope"></i></div>
+                <div class="social-card-name">Email Us</div>
+                <div class="social-card-handle">thenoblerosellc@gmail.com</div>
+                <span class="social-card-cta">Get in Touch →</span>
+            </a>
+            <a class="social-card social-card--psychtoday" href="https://www.psychologytoday.com/us/therapists/noble-rose-counseling-wellness-llc-west-haven-ct/1750377" target="_blank" rel="noopener noreferrer">
+                <div class="social-card-icon"><i class="fa-solid fa-brain"></i></div>
+                <div class="social-card-name">Psychology Today</div>
+                <div class="social-card-handle">View Our Profile</div>
+                <span class="social-card-cta">Read Reviews →</span>
+            </a>
+            <a class="social-card social-card--instagram" href="https://www.instagram.com/noblerosellc/" target="_blank" rel="noopener noreferrer">
+                <div class="social-card-icon"><i class="fa-brands fa-instagram"></i></div>
+                <div class="social-card-name">Instagram</div>
+                <div class="social-card-handle">@noblerosellc</div>
+                <span class="social-card-cta">Follow Us →</span>
+            </a>
+            <a class="social-card social-card--facebook" href="https://www.facebook.com/profile.php?id=61561866577478" target="_blank" rel="noopener noreferrer">
+                <div class="social-card-icon"><i class="fa-brands fa-facebook-f"></i></div>
+                <div class="social-card-name">Facebook</div>
+                <div class="social-card-handle">Noble Rose LLC</div>
+                <span class="social-card-cta">Like Our Page →</span>
+            </a>
+        </div>
+    </section>
+
     <!-- WAVE INTO CONTACT -->
     <div style="background:white;line-height:0;">
         <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="height:70px;width:100%;display:block;" xmlns="http://www.w3.org/2000/svg">
@@ -554,7 +610,10 @@
                 <div class="logo-text">Noble Rose</div>
                 <p>Noble Rose Counseling &amp; Wellness — creating a safe, nurturing environment where clients feel seen, heard, and supported on their journey toward healing and wellness.</p>
                 <div class="footer-social">
-                    <a href="mailto:thenoblerosellc@gmail.com" title="Email">📧</a>
+                    <a href="mailto:thenoblerosellc@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://www.instagram.com/noblerosellc/" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61561866577478" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.psychologytoday.com/us/therapists/noble-rose-counseling-wellness-llc-west-haven-ct/1750377" target="_blank" rel="noopener noreferrer" title="Psychology Today"><i class="fa-solid fa-brain"></i></a>
                 </div>
             </div>
             <div class="footer-col">
