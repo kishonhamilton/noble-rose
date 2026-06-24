@@ -177,8 +177,8 @@
         .values-intro { max-width: 720px; margin: 0 auto 72px; text-align: center; }
         .values-intro h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.8em; color: var(--primary); font-weight: 700; margin-bottom: 18px; line-height: 1.2; }
         .values-intro p { font-size: 1.1em; color: #5a5a5a; line-height: 1.85; }
-        .values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; max-width: 1000px; margin: 0 auto; }
-        .value-card { border-radius: 22px; padding: 38px 26px; text-align: center; position: relative; overflow: hidden; transition: box-shadow 0.3s; border: 1px solid rgba(45,95,79,0.07); }
+        .values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; max-width: 760px; margin: 0 auto; }
+        .value-card { border-radius: 16px; padding: 19px 14px; text-align: center; position: relative; overflow: hidden; transition: box-shadow 0.3s; border: 1px solid rgba(45,95,79,0.07); }
         .value-card:nth-child(1) { background: linear-gradient(160deg, #fff9f0, #fdf5ec); }
         .value-card:nth-child(2) { background: linear-gradient(160deg, #f0f7f4, #e8f2ee); }
         .value-card:nth-child(3) { background: linear-gradient(160deg, #f4f7f0, #ecf2e8); }
@@ -187,10 +187,10 @@
         .value-card:nth-child(6) { background: linear-gradient(160deg, #f5f0f7, #eee8f5); }
         .value-card:nth-child(7) { background: linear-gradient(160deg, #f7f4f0, #f2eee8); grid-column: 2; }
         .value-card:hover { box-shadow: 0 20px 50px rgba(45,95,79,0.12); }
-        .value-icon { width: 72px; height: 72px; margin: 0 auto 24px; display: flex; align-items: center; justify-content: center; border-radius: 22px; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .value-icon::before { content: ''; position: absolute; inset: -3px; border-radius: 25px; opacity: 0.2; z-index: 0; }
-        .value-icon i { font-size: 1.75rem; color: #fff; position: relative; z-index: 1; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15)); }
-        .value-card:hover .value-icon { transform: translateY(-4px) scale(1.06); }
+        .value-icon { width: 40px; height: 40px; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; border-radius: 13px; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .value-icon::before { content: ''; position: absolute; inset: -2px; border-radius: 15px; opacity: 0.2; z-index: 0; }
+        .value-icon i { font-size: 1rem; color: #fff; position: relative; z-index: 1; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15)); }
+        .value-card:hover .value-icon { transform: translateY(-2px) scale(1.06); }
         /* Compassion — warm rose */
         .value-card:nth-child(1) .value-icon { background: linear-gradient(135deg, #e8826a, #c9563a); box-shadow: 0 8px 24px rgba(201,86,58,0.35); }
         .value-card:nth-child(1) .value-icon::before { background: linear-gradient(135deg, #e8826a, #c9563a); }
@@ -212,8 +212,8 @@
         /* Respect — warm gold */
         .value-card:nth-child(7) .value-icon { background: linear-gradient(135deg, #e0b050, #c9973a); box-shadow: 0 8px 24px rgba(201,151,58,0.35); }
         .value-card:nth-child(7) .value-icon::before { background: linear-gradient(135deg, #e0b050, #c9973a); }
-        .value-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5em; color: var(--primary); font-weight: 700; margin-bottom: 12px; }
-        .value-card p { font-size: 0.92em; color: #666; line-height: 1.78; }
+        .value-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.1em; color: var(--primary); font-weight: 700; margin-bottom: 6px; }
+        .value-card p { font-size: 0.78em; color: #666; line-height: 1.6; }
 
         /* ─── FINANCES ────────────────────────────── */
         .finances { padding: 110px 50px; background: white; position: relative; overflow: hidden; }
@@ -284,18 +284,18 @@
         .social-section { padding: 90px 50px; background: linear-gradient(160deg, #f8f4f0 0%, #eef5f1 50%, #f4f0f8 100%); text-align: center; }
         .social-section .section-badge { display: inline-block; margin-bottom: 16px; }
         .social-section > p { font-size: 1.05em; color: #666; max-width: 520px; margin: 0 auto 52px; line-height: 1.8; }
-        .social-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; }
-        .social-card { background: white; border-radius: 24px; padding: 40px 28px; text-decoration: none; border: 1px solid rgba(45,95,79,0.08); box-shadow: 0 6px 28px rgba(45,95,79,0.07); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; align-items: center; gap: 16px; }
-        .social-card:hover { transform: translateY(-6px); box-shadow: 0 18px 48px rgba(45,95,79,0.14); }
-        .social-card-icon { width: 72px; height: 72px; border-radius: 22px; display: flex; align-items: center; justify-content: center; }
-        .social-card-icon i { font-size: 2rem; color: white; }
+        .social-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 760px; margin: 0 auto; }
+        .social-card { background: white; border-radius: 16px; padding: 20px 14px; text-decoration: none; border: 1px solid rgba(45,95,79,0.08); box-shadow: 0 6px 28px rgba(45,95,79,0.07); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+        .social-card:hover { transform: translateY(-3px); box-shadow: 0 18px 48px rgba(45,95,79,0.14); }
+        .social-card-icon { width: 40px; height: 40px; border-radius: 13px; display: flex; align-items: center; justify-content: center; }
+        .social-card-icon i { font-size: 1.1rem; color: white; }
         .social-card--instagram .social-card-icon { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); box-shadow: 0 8px 24px rgba(220,39,67,0.35); }
         .social-card--psychtoday .social-card-icon { background: linear-gradient(135deg, #5ab5a0, #2e8b74); box-shadow: 0 8px 24px rgba(46,139,116,0.35); }
         .social-card--facebook .social-card-icon { background: linear-gradient(135deg, #4f80d4, #1877f2); box-shadow: 0 8px 24px rgba(24,119,242,0.35); }
         .social-card--email .social-card-icon { background: linear-gradient(135deg, #3d8c72, #2d5f4f); box-shadow: 0 8px 24px rgba(45,95,79,0.35); }
-        .social-card-name { font-family: 'Cormorant Garamond', serif; font-size: 1.3em; font-weight: 700; color: var(--primary); }
-        .social-card-handle { font-size: 0.88em; color: #888; }
-        .social-card-cta { margin-top: 8px; font-size: 0.82em; font-weight: 600; color: var(--primary); letter-spacing: 0.5px; padding: 8px 20px; border-radius: 30px; background: rgba(45,95,79,0.07); border: 1px solid rgba(45,95,79,0.12); transition: background 0.2s; }
+        .social-card-name { font-family: 'Cormorant Garamond', serif; font-size: 1em; font-weight: 700; color: var(--primary); }
+        .social-card-handle { font-size: 0.74em; color: #888; }
+        .social-card-cta { margin-top: 4px; font-size: 0.7em; font-weight: 600; color: var(--primary); letter-spacing: 0.5px; padding: 5px 14px; border-radius: 30px; background: rgba(45,95,79,0.07); border: 1px solid rgba(45,95,79,0.12); transition: background 0.2s; }
         .social-card:hover .social-card-cta { background: rgba(45,95,79,0.14); }
 
         /* ─── RESPONSIVE ──────────────────────────── */
@@ -340,7 +340,7 @@
             .commitment-banner h3 { font-size: 2.2em; }
             .social-section { padding: 70px 20px; }
             .social-cards { grid-template-columns: repeat(2, 1fr); gap: 18px; }
-            .social-card { padding: 32px 20px; }
+            .social-card { padding: 16px 10px; }
             .footer-inner { grid-template-columns: 1fr; gap: 36px; }
             .mod-trigger { padding: 18px 20px; gap: 12px; }
             .mod-body-inner { padding: 2px 20px 22px 20px; }
