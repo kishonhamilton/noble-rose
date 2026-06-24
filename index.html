@@ -215,6 +215,26 @@
         .value-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5em; color: var(--primary); font-weight: 700; margin-bottom: 12px; }
         .value-card p { font-size: 0.92em; color: #666; line-height: 1.78; }
 
+        /* ─── FINANCES ────────────────────────────── */
+        .finances { padding: 110px 50px; background: white; position: relative; overflow: hidden; }
+        .finances::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, var(--secondary), var(--gold), var(--secondary)); }
+        .finances-intro { max-width: 720px; margin: 0 auto 60px; text-align: center; }
+        .finances-intro p { font-size: 1.1em; color: #5a5a5a; line-height: 1.85; }
+        .finances-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; max-width: 900px; margin: 0 auto 60px; }
+        .finance-card { background: linear-gradient(160deg, #f8f6f4, #f2ede8); border-radius: 22px; padding: 40px 36px; border: 1px solid rgba(45,95,79,0.07); box-shadow: 0 4px 20px rgba(45,95,79,0.05); }
+        .finance-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5em; color: var(--primary); font-weight: 700; margin-bottom: 22px; }
+        .fee-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+        .fee-list li { display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; border-bottom: 1px solid rgba(45,95,79,0.1); font-size: 1.02em; color: #444; }
+        .fee-list li:last-child { border-bottom: none; padding-bottom: 0; }
+        .fee-list li strong { color: var(--primary); font-size: 1.2em; font-family: 'Cormorant Garamond', serif; }
+        .payment-icons { display: flex; flex-wrap: wrap; gap: 12px; }
+        .payment-icons span { display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 30px; background: white; border: 1px solid rgba(45,95,79,0.1); font-size: 0.92em; font-weight: 500; color: #444; }
+        .payment-icons span i { color: var(--primary); font-size: 1.1em; }
+        .insurance-block { max-width: 900px; margin: 0 auto; text-align: center; }
+        .insurance-block h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.7em; color: var(--primary); font-weight: 700; margin-bottom: 24px; }
+        .insurance-grid { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+        .insurance-grid span { padding: 12px 24px; border-radius: 30px; background: rgba(45,95,79,0.06); border: 1px solid rgba(45,95,79,0.12); color: var(--primary); font-weight: 600; font-size: 0.95em; }
+
         /* ─── CONTACT ─────────────────────────────── */
         .contact-section { padding: 110px 50px; background: linear-gradient(160deg, #1e4438 0%, var(--primary) 40%, #3d7a65 100%); position: relative; overflow: hidden; }
         .contact-section::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M40 0C17.9 0 0 17.9 0 40s17.9 40 40 40 40-17.9 40-40S62.1 0 40 0zm0 72C22.4 72 8 57.6 8 40S22.4 8 40 8s32 14.4 32 32-14.4 32-32 32z'/%3E%3C/g%3E%3C/svg%3E"); }
@@ -263,7 +283,6 @@
         /* ─── SOCIAL SECTION ─────────────────────── */
         .social-section { padding: 90px 50px; background: linear-gradient(160deg, #f8f4f0 0%, #eef5f1 50%, #f4f0f8 100%); text-align: center; }
         .social-section .section-badge { display: inline-block; margin-bottom: 16px; }
-        .social-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.6em; color: var(--primary); font-weight: 700; margin-bottom: 14px; }
         .social-section > p { font-size: 1.05em; color: #666; max-width: 520px; margin: 0 auto 52px; line-height: 1.8; }
         .social-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; }
         .social-card { background: white; border-radius: 24px; padding: 40px 28px; text-decoration: none; border: 1px solid rgba(45,95,79,0.08); box-shadow: 0 6px 28px rgba(45,95,79,0.07); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; align-items: center; gap: 16px; }
@@ -309,8 +328,9 @@
             .hero-text { padding: 32px 24px; }
             .hero-tagline { padding: 24px; }
             .hero-tagline h1 { font-size: clamp(1.8em, 6vw, 2.4em); }
-            .about, .approach, .values, .contact-section { padding: 70px 20px; }
+            .about, .approach, .values, .finances, .contact-section { padding: 70px 20px; }
             .services-grid { grid-template-columns: 1fr; gap: 18px; }
+            .finances-grid { grid-template-columns: 1fr; }
             .values-grid { grid-template-columns: 1fr 1fr; }
             .values-grid .value-card:nth-child(7) { grid-column: auto; }
             .contact-inner { grid-template-columns: 1fr; gap: 40px; }
@@ -342,6 +362,7 @@
             <li><a href="#approach">Our Approach</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#values">Values</a></li>
+            <li><a href="#finances">Finances</a></li>
             <li class="nav-cta-link"><a href="#contact">Book a Consultation</a></li>
         </ul>
         <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
@@ -353,6 +374,7 @@
         <a href="#approach" onclick="closeMenu()">Our Approach</a>
         <a href="#services" onclick="closeMenu()">Services</a>
         <a href="#values" onclick="closeMenu()">Our Values</a>
+        <a href="#finances" onclick="closeMenu()">Finances</a>
         <a href="#contact" class="mobile-cta" onclick="closeMenu()">Book a Consultation</a>
     </div>
 
@@ -524,10 +546,49 @@
         </div>
     </section>
 
+    <!-- FINANCES -->
+    <section id="finances" class="finances">
+        <div class="finances-intro">
+            <span class="section-badge">INVESTING IN YOUR CARE</span>
+            <h2 class="section-heading">Finances</h2>
+            <p>We aim to keep the financial side of your care simple and transparent. Below you'll find our session fees, accepted payment methods, and the insurance plans we work with.</p>
+        </div>
+        <div class="finances-grid">
+            <div class="finance-card">
+                <h3>Session Fees</h3>
+                <ul class="fee-list">
+                    <li><span>Individual Sessions</span><strong>$120</strong></li>
+                    <li><span>Couple Sessions</span><strong>$140</strong></li>
+                </ul>
+            </div>
+            <div class="finance-card">
+                <h3>Payment Methods</h3>
+                <div class="payment-icons">
+                    <span><i class="fa-brands fa-cc-mastercard"></i> Mastercard</span>
+                    <span><i class="fa-brands fa-paypal"></i> PayPal</span>
+                    <span><i class="fa-brands fa-cc-visa"></i> Visa</span>
+                    <span><i class="fa-solid fa-money-bill-transfer"></i> Zelle</span>
+                </div>
+            </div>
+        </div>
+        <div class="insurance-block">
+            <h3>Insurance Accepted</h3>
+            <div class="insurance-grid">
+                <span>Aetna</span>
+                <span>Anthem</span>
+                <span>Blue Cross</span>
+                <span>Blue Shield</span>
+                <span>Carelon Behavioral Health</span>
+                <span>Cigna EAP</span>
+                <span>Oxford</span>
+            </div>
+        </div>
+    </section>
+
     <!-- CONNECT / SOCIAL -->
     <section class="social-section">
         <span class="section-badge">STAY CONNECTED</span>
-        <h2>Find Us Online</h2>
+        <h2 class="section-heading">Find Us Online</h2>
         <p>Follow our journey, read client reviews, and reach out through the platforms below.</p>
         <div class="social-cards">
             <a class="social-card social-card--email" href="mailto:wellness@noblerosellc.com">
